@@ -8,7 +8,7 @@ const Header = (props) => (
     <div className="content">
       <div className="inner">
         <h1>Thrive Leadership</h1>
-        <p>A two-day training experience designed to unleash your inner leader and empower you to personal professional success.</p>
+        <p>A two-day training experience designed to unleash your inner leader and empower you to personal and professional success.</p>
         <nav className="register">
           <ul>
             <li><a href="javascript:;" onClick={() => {props.onOpenArticle('register')}}>Register</a></li>
