@@ -6,6 +6,8 @@ import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
 import Register from './Register';
 
+import config from '../client-config';
+
 class Main extends React.Component {
   render() {
 
@@ -71,7 +73,7 @@ class Main extends React.Component {
 
         <article id="contact" className={`${this.props.article === 'contact' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Contact</h2>
-          <form method="post" action="#">
+          <form method="post" action={config.email.apiUrl} onSubmit={(e) => e.preventDefault() }>
             <div className="field half first">
               <label htmlFor="name">Name</label>
               <input type="text" name="name" id="name" />

@@ -2,7 +2,7 @@ import fetch from 'isomorphic-unfetch';
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 
-import config from '../stripe-config';
+import config from '../client-config';
 
 class Register extends React.Component {
 
