@@ -1,4 +1,4 @@
-// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = (event, context, callback) => {
   console.log('createCharge');
@@ -11,35 +11,35 @@ exports.handler = (event, context, callback) => {
   const currency = requestBody.charge.currency;
 
   console.log('TOKEN', token, 'AMOUNT', amount, 'CURRENCY', currency);
-  // stripe.charges.create({
-  //   amount,
-  //   currency,
-  //   description: 'Serverless Stripe Test Charge',
-  //   source: token,
-  // }).then(charge => {
-  //   console.log(charge);
-  //   const response = {
-  //     statusCode: 200,
-  //     headers: {
-  //       'Access-Control-Allow-Origin': '*',
-  //     },
-  //     body: JSON.stringify({
-  //       message: 'Charge processed successfully!',
-  //       charge,
-  //     }),
-  //   };
-  //   callback(null, response);
-  // }).catch(err => {
-  //   console.log(err);
-  //   const response = {
-  //     statusCode: 500,
-  //     headers: {
-  //       'Access-Control-Allow-Origin': '*',
-  //     },
-  //     body: JSON.stringify({
-  //       error: err.message,
-  //     }),
-  //   };
-  //   callback(null, response);
-  // });
+  return stripe.charges.create({
+    amount,
+    currency,
+    description: 'Serverless Stripe Test Charge',
+    source: token,
+  }).then(charge => {
+    console.log(charge);
+    const response = {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+      body: JSON.stringify({
+        message: 'Charge processed successfully!',
+        charge,
+      }),
+    };
+    callback(null, response);
+  }).catch(err => {
+    console.log(err);
+    const response = {
+      statusCode: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+      body: JSON.stringify({
+        error: err.message,
+      }),
+    };
+    callback(null, response);
+  });
 }
