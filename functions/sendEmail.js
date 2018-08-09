@@ -1,7 +1,9 @@
 exports.handler = (event, context, callback) => {
   console.log('My Test Variable', process.env.TEST_VAR);
-
-  const requestBody = event.body;
+  console.log('EVENT BOYD', event.body);
+  console.log('PARSED EVENT BODY', JSON.parse(event.body));
+  console.log('EVENT', event);
+  const requestBody = JSON.parse(event.body);
   
   const senderName = requestBody.name;
   const senderEmail = requestBody.email;
