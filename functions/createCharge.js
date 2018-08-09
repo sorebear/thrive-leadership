@@ -10,7 +10,7 @@ exports.handler = (event, context, callback) => {
   const amount = requestBody.charge.amount;
   const currency = requestBody.chard.currency;
 
-  return stripe.charges.create({
+  stripe.charges.create({
     amount,
     currency,
     description: 'Serverless Stripe Test Charge',
@@ -40,5 +40,5 @@ exports.handler = (event, context, callback) => {
       }),
     };
     callback(null, response);
-  })
+  });
 }
