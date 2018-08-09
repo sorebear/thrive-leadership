@@ -6,7 +6,7 @@ module.exports.handler = (event, context, callback) => {
   // Pull out the amount and id for the charge from the POST
   console.log(event);
   const requestData = JSON.parse(event.body);
-  console.log(requestData);
+  console.log('Request Data', requestData);
   const amount = requestData.amount;
   const token = requestData.token.id;
 
@@ -19,7 +19,7 @@ module.exports.handler = (event, context, callback) => {
   return stripe.charges
     .create({
       // Create Stripe charge with token
-      amount,
+      amount: amount,
       source: token,
       currency: "usd",
       description: "Serverless test Stripe charge"

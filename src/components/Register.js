@@ -32,22 +32,6 @@ class Register extends React.Component {
     });
   }
 
-  // async onToken(token) {
-  //   const res = await fetch(config.stripe.apiUrl, {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       token,
-  //       charge: {
-  //         amount: this.props.amount,
-  //         currency: config.stripe.currency,
-  //       },
-  //     }),
-  //   });
-  //   const data = await res.json();
-  //   console.log('onToken');
-  //   console.log(data);
-  // }
-
   render() {
     return (
       <StripeCheckout 
