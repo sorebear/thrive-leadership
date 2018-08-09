@@ -8,7 +8,7 @@ exports.handler = (event, context, callback) => {
 
   const token = requestBody.token.id;
   const amount = requestBody.charge.amount;
-  const currency = requestBody.chard.currency;
+  const currency = requestBody.charge.currency;
 
   console.log('TOKEN', token, 'AMOUNT', amount, 'CURRENCY', currency);
   // stripe.charges.create({
