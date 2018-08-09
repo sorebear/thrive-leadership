@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Hunter Chang",
   "dependencies": {
+    "axios": "^0.18.0",
     "gatsby": "^1.9.235",
     "gatsby-image": "^1.0.42",
     "gatsby-link": "^1.6.39",
@@ -40,5 +41,9 @@
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.1",
+    "netlify-lambda": "^0.4.0"
   }
 }
