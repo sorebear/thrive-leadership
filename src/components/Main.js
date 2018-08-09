@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
-import Register from './register';
+import Register from './Register';
 
 class Main extends React.Component {
   render() {
