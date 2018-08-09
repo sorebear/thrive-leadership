@@ -7,7 +7,8 @@ module.exports.handler = (event, context, callback) => {
   console.log(event);
   const requestData = JSON.parse(event.body);
   console.log('Request Data', requestData);
-  const amount = requestData.amount;
+  const currency = requestData.charge.currency;
+  const amount = requestData.charge.amount;
   const token = requestData.token.id;
 
   // Headers to prevent CORS issues
@@ -21,7 +22,7 @@ module.exports.handler = (event, context, callback) => {
       // Create Stripe charge with token
       amount: amount,
       source: token,
-      currency: "usd",
+      currency: currency,
       description: "Serverless test Stripe charge"
     })
     .then(charge => {
