@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = (event, context, callback) => {
   console.log('createCharge');
@@ -11,6 +11,7 @@ exports.handler = (event, context, callback) => {
   const currency = requestBody.charge.currency;
 
   console.log('STRIPE:', stripe);
+  console.log('Stripe Secret Key:', process.env.STRIPE_SECRET_KEY);
   console.log('TOKEN', token, 'AMOUNT', amount, 'CURRENCY', currency);
   // stripe.charges.create({
   //   amount,
