@@ -12,6 +12,7 @@ class Register extends React.Component {
   }
 
   onToken(token) {
+    console.log('I am sending this token', token);
     fetch(config.stripe.apiUrl, {
       method: 'POST',
       body: JSON.stringify({
