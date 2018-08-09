@@ -1,6 +1,6 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-module.exports.handler = (event, context, callback) => {
+exports.handler = (event, context, callback) => {
   console.log('createCharge');
   console.log(event);
   const requestBody = JSON.parse(event.body);
