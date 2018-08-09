@@ -1,7 +1,7 @@
 const config = {
   stripe: {
     apiKey: 'pk_test_kze3wkMOtLWSPfXfT7UxVWJR',
-    apiUrl: '../functions/creteCharge',
+    apiUrl: '../functions/createCharge',
     currency: 'USD',
   },
 };
