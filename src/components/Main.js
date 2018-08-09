@@ -4,6 +4,7 @@ import Link from 'gatsby-link'
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
+import Register from './register';
 
 class Main extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class Main extends React.Component {
         <article id="register" className={`${this.props.article === 'register' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Register</h2>
           <span className="image main"><img src={pic03} alt="" /></span>
-          <h3>Coming Soon...</h3>
+          <Register amount={100} />
           {close}
         </article>
 
