@@ -19,14 +19,15 @@ class ContactForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const { name, email, message } = this.state;
     axios.post(config.email.apiUrl, {
-      senderName: this.state.name,
-      senderEmail: this.state.email,
-      senderMessage: this.state.message
+      name,
+      email,
+      message
     }).then(res => {
-      console.log(res);
+      console.log('SUCCESS', res);
     }).catch(err => {
-      console.log(err);
+      console.log('ERROR', err);
     });
   }
 

@@ -1,3 +1,5 @@
+const nodemailer = require('nodemailer');
+
 exports.handler = (event, context, callback) => {
   console.log('My Test Variable', process.env.TEST_VAR);
   console.log('EVENT BOYD', event.body);
