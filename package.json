@@ -35,10 +35,11 @@
     "url": "https://github.com/ChangoMan/gatsby-starter-dimension.git"
   },
   "scripts": {
+    "lambda": "netlify-lambda serve functions-src",
     "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "develop": "gatsby develop",
+    "develop": "concurrently  \"gatsby develop\" \"netlify-lambda serve functions-src\"",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
