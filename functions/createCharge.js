@@ -10,7 +10,7 @@ exports.handler = (event, context, callback) => {
   const amount = requestBody.charge.amount;
   const currency = requestBody.charge.currency;
 
-  console.log('STRIPE:', stripe);
+  // console.log('STRIPE:', stripe);
   console.log('Stripe Secret Key:', process.env.STRIPE_SECRET_KEY);
   console.log('TOKEN', token, 'AMOUNT', amount, 'CURRENCY', currency);
   // stripe.charges.create({
