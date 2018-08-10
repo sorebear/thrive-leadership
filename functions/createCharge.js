@@ -71,11 +71,11 @@
 
 
 var http = __webpack_require__(8);
-var https = __webpack_require__(9);
-var path = __webpack_require__(10);
+var https = __webpack_require__(14);
+var path = __webpack_require__(9);
 
 var utils = __webpack_require__(6);
-var Error = __webpack_require__(11);
+var Error = __webpack_require__(10);
 
 var hasOwn = {}.hasOwnProperty;
 
@@ -83,7 +83,7 @@ var hasOwn = {}.hasOwnProperty;
 StripeResource.extend = utils.protoExtend;
 
 // Expose method-creator & prepared (basic) methods
-StripeResource.method = __webpack_require__(25);
+StripeResource.method = __webpack_require__(24);
 StripeResource.BASIC_METHODS = __webpack_require__(44);
 
 /**
@@ -425,7 +425,7 @@ var qs = __webpack_require__(41);
 var crypto = __webpack_require__(3);
 
 var hasOwn = {}.hasOwnProperty;
-var isPlainObject = __webpack_require__(24);
+var isPlainObject = __webpack_require__(23);
 
 var OPTIONS_KEYS = ['api_key', 'idempotency_key', 'stripe_account', 'stripe_version'];
 
@@ -668,16 +668,10 @@ module.exports = require("http");
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = require("https");
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
 module.exports = require("path");
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -759,12 +753,18 @@ _Error.StripeIdempotencyError = StripeError.extend({type: 'StripeIdempotencyErro
 
 
 /***/ }),
+/* 11 */,
 /* 12 */,
-/* 13 */,
-/* 14 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("child_process");
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+module.exports = require("https");
 
 /***/ }),
 /* 15 */
@@ -839,8 +839,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 /* 17 */,
 /* 18 */,
 /* 19 */,
-/* 20 */,
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -949,7 +948,7 @@ module.exports = StripeResource.extend({
 
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1158,7 +1157,7 @@ exports.isBuffer = function isBuffer(obj) {
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1183,7 +1182,7 @@ module.exports = {
 
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports) {
 
 /**
@@ -1328,7 +1327,7 @@ module.exports = isPlainObject;
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1458,6 +1457,7 @@ module.exports = stripeMethod;
 
 
 /***/ }),
+/* 25 */,
 /* 26 */,
 /* 27 */,
 /* 28 */,
@@ -1556,14 +1556,14 @@ Stripe.USER_AGENT_SERIALIZED = null;
 var APP_INFO_PROPERTIES = ['name', 'version', 'url'];
 
 var EventEmitter = __webpack_require__(5).EventEmitter;
-var exec = __webpack_require__(14).exec;
+var exec = __webpack_require__(13).exec;
 
 var resourceNamespace = __webpack_require__(39);
 
 var resources = {
   // Support Accounts for consistency, Account for backwards compat
-  Account: __webpack_require__(21),
-  Accounts: __webpack_require__(21),
+  Account: __webpack_require__(20),
+  Accounts: __webpack_require__(20),
   ApplePayDomains: __webpack_require__(45),
   ApplicationFees: __webpack_require__(46),
   Balance: __webpack_require__(47),
@@ -1654,7 +1654,7 @@ function Stripe(key, version) {
   this.setApiKey(key);
   this.setApiVersion(version);
 
-  this.errors = __webpack_require__(11);
+  this.errors = __webpack_require__(10);
   this.webhooks = __webpack_require__(93);
 }
 
@@ -1860,7 +1860,7 @@ module.exports = require("buffer");
 
 var stringify = __webpack_require__(42);
 var parse = __webpack_require__(43);
-var formats = __webpack_require__(23);
+var formats = __webpack_require__(22);
 
 module.exports = {
     formats: formats,
@@ -1876,8 +1876,8 @@ module.exports = {
 "use strict";
 
 
-var utils = __webpack_require__(22);
-var formats = __webpack_require__(23);
+var utils = __webpack_require__(21);
+var formats = __webpack_require__(22);
 
 var arrayPrefixGenerators = {
     brackets: function brackets(prefix) { // eslint-disable-line func-name-matching
@@ -2093,7 +2093,7 @@ module.exports = function (object, opts) {
 "use strict";
 
 
-var utils = __webpack_require__(22);
+var utils = __webpack_require__(21);
 
 var has = Object.prototype.hasOwnProperty;
 
@@ -2274,8 +2274,8 @@ module.exports = function (str, opts) {
 "use strict";
 
 
-var isPlainObject = __webpack_require__(24);
-var stripeMethod = __webpack_require__(25);
+var isPlainObject = __webpack_require__(23);
+var stripeMethod = __webpack_require__(24);
 
 module.exports = {
 
@@ -2913,7 +2913,7 @@ var utils = __webpack_require__(6);
 var StripeResource = __webpack_require__(0);
 var stripeMethod = StripeResource.method;
 var multipartDataGenerator = __webpack_require__(59);
-var Error = __webpack_require__(11);
+var Error = __webpack_require__(10);
 
 module.exports = StripeResource.extend({
 
@@ -3926,7 +3926,7 @@ module.exports = StripeResource.extend({
 var crypto = __webpack_require__(3);
 
 var utils = __webpack_require__(6);
-var Error = __webpack_require__(11);
+var Error = __webpack_require__(10);
 
 var Webhook = {
   DEFAULT_TOLERANCE: 300,

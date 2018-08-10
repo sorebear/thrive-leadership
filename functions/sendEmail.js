@@ -80,9 +80,9 @@ module.exports = require("stream");
 
 
 const urllib = __webpack_require__(7);
-const util = __webpack_require__(16);
-const fs = __webpack_require__(17);
-const fetch = __webpack_require__(12);
+const util = __webpack_require__(25);
+const fs = __webpack_require__(16);
+const fetch = __webpack_require__(11);
 
 /**
  * Parses connection url to a structured configuration object
@@ -499,24 +499,18 @@ module.exports = require("http");
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = require("https");
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
 module.exports = require("path");
 
 /***/ }),
-/* 11 */,
-/* 12 */
+/* 10 */,
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 const http = __webpack_require__(8);
-const https = __webpack_require__(9);
+const https = __webpack_require__(14);
 const urllib = __webpack_require__(7);
 const zlib = __webpack_require__(97);
 const PassThrough = __webpack_require__(1).PassThrough;
@@ -793,7 +787,7 @@ function fetch(url, options) {
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1428,32 +1422,32 @@ module.exports = {
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("child_process");
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports) {
+
+module.exports = require("https");
 
 /***/ }),
 /* 15 */,
 /* 16 */
 /***/ (function(module, exports) {
 
-module.exports = require("util");
+module.exports = require("fs");
 
 /***/ }),
 /* 17 */
 /***/ (function(module, exports) {
 
-module.exports = require("fs");
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
 module.exports = require("net");
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1461,7 +1455,7 @@ module.exports = require("net");
 
 const packageInfo = __webpack_require__(4);
 const EventEmitter = __webpack_require__(5).EventEmitter;
-const net = __webpack_require__(18);
+const net = __webpack_require__(17);
 const tls = __webpack_require__(32);
 const os = __webpack_require__(28);
 const crypto = __webpack_require__(3);
@@ -3029,7 +3023,7 @@ module.exports = SMTPConnection;
 
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3088,11 +3082,17 @@ module.exports = LeWindows;
 
 
 /***/ }),
+/* 20 */,
 /* 21 */,
 /* 22 */,
 /* 23 */,
 /* 24 */,
-/* 25 */,
+/* 25 */
+/***/ (function(module, exports) {
+
+module.exports = require("util");
+
+/***/ }),
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3101,7 +3101,7 @@ module.exports = LeWindows;
 
 
 
-const path = __webpack_require__(10);
+const path = __webpack_require__(9);
 
 const defaultMimeType = 'application/octet-stream';
 const defaultExtension = 'bin';
@@ -5219,15 +5219,15 @@ module.exports = {
 
 const crypto = __webpack_require__(3);
 const os = __webpack_require__(28);
-const fs = __webpack_require__(17);
+const fs = __webpack_require__(16);
 const punycode = __webpack_require__(29);
 const PassThrough = __webpack_require__(1).PassThrough;
 
-const mimeFuncs = __webpack_require__(13);
+const mimeFuncs = __webpack_require__(12);
 const qp = __webpack_require__(31);
 const base64 = __webpack_require__(30);
 const addressparser = __webpack_require__(100);
-const fetch = __webpack_require__(12);
+const fetch = __webpack_require__(11);
 const LastNewline = __webpack_require__(101);
 
 /**
@@ -6858,7 +6858,7 @@ module.exports = require("tls");
 
 
 const Stream = __webpack_require__(1).Stream;
-const fetch = __webpack_require__(12);
+const fetch = __webpack_require__(11);
 const crypto = __webpack_require__(3);
 const shared = __webpack_require__(2);
 
@@ -7339,7 +7339,6 @@ module.exports = LeWindows;
 
 
 var nodemailer = __webpack_require__(95);
-var xoauth2 = __webpack_require__(118);
 
 exports.handler = function (event, context, callback) {
   var requestBody = JSON.parse(event.body);
@@ -7347,12 +7346,6 @@ exports.handler = function (event, context, callback) {
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      // xoauth2: xoauth2.createXOAuth2Generator({
-      //   user: 'caitbaird@gmail.com',
-      //   clientId: '118365106713-di12r3mehr3kcu1of5d8619e6q6p3n1b.apps.googleusercontent.com',
-      //   clientSecret: process.env.GMAIL_CLIENT_SECRET,
-      //   refreshToken: '1/5eSLxOl_tkf0RFPfPEgWNx2wa1WwwLKSU98sP_U1z9o'
-      // })
       type: "OAuth2",
       user: 'caitbaird@gmail.com',
       clientId: '118365106713-di12r3mehr3kcu1of5d8619e6q6p3n1b.apps.googleusercontent.com',
@@ -7362,11 +7355,11 @@ exports.handler = function (event, context, callback) {
   });
 
   var mailOptions = {
-    from: requestBody.name + ' <' + requestBody.email + '>',
+    from: 'caitbaird@gmail.com',
     to: 'soren@sorenbaird.com',
     subject: 'New ThriveLeadership.net Message from ' + requestBody.name,
-    text: requestBody.message,
-    html: '<p>' + requestBody.message + '</p>'
+    text: 'MESSAGE SENDER NAME: ' + requestBody.name + ', MESSAGE SENDER EMAIL: ' + requestBody.email + ', MESSAGE: ' + requestBody.message,
+    html: '<p>MESSAGE SENDER NAME: ' + requestBody.name + '</p>\n          <br>\n          <p>MESSAGE SENDER EMAIL: ' + requestBody.email + '</p>\n          <br>\n          <p>MESSAGE:</p>\n          <p>' + requestBody.message + '</p>'
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
@@ -7401,7 +7394,7 @@ const SendmailTransport = __webpack_require__(114);
 const StreamTransport = __webpack_require__(115);
 const JSONTransport = __webpack_require__(116);
 const SESTransport = __webpack_require__(117);
-const fetch = __webpack_require__(12);
+const fetch = __webpack_require__(11);
 const packageData = __webpack_require__(4);
 
 const ETHEREAL_API = (process.env.ETHEREAL_API || 'https://api.nodemailer.com').replace(/\/+$/, '');
@@ -7554,11 +7547,11 @@ const mimeTypes = __webpack_require__(26);
 const MailComposer = __webpack_require__(99);
 const DKIM = __webpack_require__(102);
 const httpProxyClient = __webpack_require__(106);
-const util = __webpack_require__(16);
+const util = __webpack_require__(25);
 const urllib = __webpack_require__(7);
 const packageData = __webpack_require__(4);
 const MailMessage = __webpack_require__(107);
-const net = __webpack_require__(18);
+const net = __webpack_require__(17);
 const dns = __webpack_require__(108);
 const crypto = __webpack_require__(3);
 
@@ -8278,7 +8271,7 @@ module.exports = Cookies;
 
 
 const MimeNode = __webpack_require__(27);
-const mimeFuncs = __webpack_require__(13);
+const mimeFuncs = __webpack_require__(12);
 
 /**
  * Creates the object for composing a MimeNode instance out from the mail options
@@ -9173,8 +9166,8 @@ const MessageParser = __webpack_require__(103);
 const RelaxedBody = __webpack_require__(104);
 const sign = __webpack_require__(105);
 const PassThrough = __webpack_require__(1).PassThrough;
-const fs = __webpack_require__(17);
-const path = __webpack_require__(10);
+const fs = __webpack_require__(16);
+const path = __webpack_require__(9);
 const crypto = __webpack_require__(3);
 
 const DKIM_ALGO = 'sha256';
@@ -9749,7 +9742,7 @@ module.exports = RelaxedBody;
 
 
 const punycode = __webpack_require__(29);
-const mimeFuncs = __webpack_require__(13);
+const mimeFuncs = __webpack_require__(12);
 const crypto = __webpack_require__(3);
 
 /**
@@ -9876,7 +9869,7 @@ function relaxedHeaderLine(line) {
  * Minimal HTTP/S proxy client
  */
 
-const net = __webpack_require__(18);
+const net = __webpack_require__(17);
 const tls = __webpack_require__(32);
 const urllib = __webpack_require__(7);
 
@@ -10012,7 +10005,7 @@ module.exports = httpProxyClient;
 
 const shared = __webpack_require__(2);
 const MimeNode = __webpack_require__(27);
-const mimeFuncs = __webpack_require__(13);
+const mimeFuncs = __webpack_require__(12);
 
 class MailMessage {
     constructor(mailer, data) {
@@ -10320,7 +10313,7 @@ module.exports = require("dns");
 
 const EventEmitter = __webpack_require__(5);
 const PoolResource = __webpack_require__(110);
-const SMTPConnection = __webpack_require__(19);
+const SMTPConnection = __webpack_require__(18);
 const wellKnown = __webpack_require__(34);
 const shared = __webpack_require__(2);
 const packageData = __webpack_require__(4);
@@ -10925,7 +10918,7 @@ module.exports = SMTPPool;
 "use strict";
 
 
-const SMTPConnection = __webpack_require__(19);
+const SMTPConnection = __webpack_require__(18);
 const assign = __webpack_require__(2).assign;
 const XOAuth2 = __webpack_require__(33);
 const EventEmitter = __webpack_require__(5);
@@ -11306,7 +11299,7 @@ module.exports = {"126":{"host":"smtp.126.com","port":465,"secure":true},"163":{
 
 
 const EventEmitter = __webpack_require__(5);
-const SMTPConnection = __webpack_require__(19);
+const SMTPConnection = __webpack_require__(18);
 const wellKnown = __webpack_require__(34);
 const shared = __webpack_require__(2);
 const XOAuth2 = __webpack_require__(33);
@@ -11719,9 +11712,9 @@ module.exports = SMTPTransport;
 "use strict";
 
 
-const spawn = __webpack_require__(14).spawn;
+const spawn = __webpack_require__(13).spawn;
 const packageData = __webpack_require__(4);
-const LeWindows = __webpack_require__(20);
+const LeWindows = __webpack_require__(19);
 const LeUnix = __webpack_require__(35);
 const shared = __webpack_require__(2);
 
@@ -11936,7 +11929,7 @@ module.exports = SendmailTransport;
 
 const packageData = __webpack_require__(4);
 const shared = __webpack_require__(2);
-const LeWindows = __webpack_require__(20);
+const LeWindows = __webpack_require__(19);
 const LeUnix = __webpack_require__(35);
 
 /**
@@ -12175,7 +12168,7 @@ module.exports = JSONTransport;
 const EventEmitter = __webpack_require__(5);
 const packageData = __webpack_require__(4);
 const shared = __webpack_require__(2);
-const LeWindows = __webpack_require__(20);
+const LeWindows = __webpack_require__(19);
 
 /**
  * Generates a Transport object for Sendmail
@@ -12482,318 +12475,6 @@ class SESTransport extends EventEmitter {
 
 module.exports = SESTransport;
 
-
-/***/ }),
-/* 118 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var Stream = __webpack_require__(1).Stream;
-var utillib = __webpack_require__(16);
-var querystring = __webpack_require__(119);
-var http = __webpack_require__(8);
-var https = __webpack_require__(9);
-var urllib = __webpack_require__(7);
-var crypto = __webpack_require__(3);
-
-/**
- * Wrapper for new XOAuth2Generator.
- *
- * Usage:
- *
- *     var xoauthgen = createXOAuth2Generator({});
- *     xoauthgen.getToken(function(err, xoauthtoken){
- *         socket.send('AUTH XOAUTH2 ' + xoauthtoken);
- *     });
- *
- * @param {Object} options See XOAuth2Generator for details
- * @return {Object}
- */
-module.exports.createXOAuth2Generator = function(options) {
-    return new XOAuth2Generator(options);
-};
-
-/**
- * XOAUTH2 access_token generator for Gmail.
- * Create client ID for web applications in Google API console to use it.
- * See Offline Access for receiving the needed refreshToken for an user
- * https://developers.google.com/accounts/docs/OAuth2WebServer#offline
- *
- * @constructor
- * @param {Object} options Client information for token generation
- * @param {String} options.user         (Required) User e-mail address
- * @param {String} options.clientId     (Required) Client ID value
- * @param {String} options.clientSecret (Required) Client secret value
- * @param {String} options.refreshToken (Required) Refresh token for an user
- * @param {String} options.accessUrl    (Optional) Endpoint for token generation, defaults to 'https://accounts.google.com/o/oauth2/token'
- * @param {String} options.accessToken  (Optional) An existing valid accessToken
- * @param {int}    options.timeout      (Optional) TTL in seconds
- */
-function XOAuth2Generator(options) {
-    Stream.call(this);
-    this.options = options || {};
-
-    if (options && options.service) {
-        if (!options.scope || !options.privateKey || !options.user) {
-            throw new Error('Options "scope", "privateKey" and "user" are required for service account!');
-        }
-
-        var serviceRequestTimeout = Math.min(Math.max(Number(this.options.serviceRequestTimeout) || 0, 0), 3600);
-        this.options.serviceRequestTimeout = serviceRequestTimeout || 5 * 60;
-    }
-
-    this.options.accessUrl = this.options.accessUrl || 'https://accounts.google.com/o/oauth2/token';
-    this.options.customHeaders = this.options.customHeaders || {};
-    this.options.customParams = this.options.customParams || {};
-
-    this.token = this.options.accessToken && this.buildXOAuth2Token(this.options.accessToken) || false;
-    this.accessToken = this.token && this.options.accessToken || false;
-
-    var timeout = Math.max(Number(this.options.timeout) || 0, 0);
-    this.timeout = timeout && Date.now() + timeout * 1000 || 0;
-}
-utillib.inherits(XOAuth2Generator, Stream);
-
-/**
- * Returns or generates (if previous has expired) a XOAuth2 token
- *
- * @param {Function} callback Callback function with error object and token string
- */
-XOAuth2Generator.prototype.getToken = function(callback) {
-    if (this.token && (!this.timeout || this.timeout > Date.now())) {
-        return callback(null, this.token, this.accessToken);
-    }
-    this.generateToken(callback);
-};
-
-/**
- * Updates token values
- *
- * @param {String} accessToken New access token
- * @param {Number} timeout Access token lifetime in seconds
- *
- * Emits 'token': { user: User email-address, accessToken: the new accessToken, timeout: TTL in seconds}
- */
-XOAuth2Generator.prototype.updateToken = function(accessToken, timeout) {
-    this.token = this.buildXOAuth2Token(accessToken);
-    this.accessToken = accessToken;
-    timeout = Math.max(Number(timeout) || 0, 0);
-    this.timeout = timeout && Date.now() + timeout * 1000 || 0;
-
-    this.emit('token', {
-        user: this.options.user,
-        accessToken: accessToken || '',
-        timeout: Math.max(Math.floor((this.timeout - Date.now()) / 1000), 0)
-    });
-};
-
-/**
- * Generates a new XOAuth2 token with the credentials provided at initialization
- *
- * @param {Function} callback Callback function with error object and token string
- */
-XOAuth2Generator.prototype.generateToken = function(callback) {
-    var urlOptions;
-    if (this.options.service) {
-        // service account - https://developers.google.com/identity/protocols/OAuth2ServiceAccount
-        var iat = Math.floor(Date.now() / 1000); // unix time
-        var token = jwtSignRS256({
-            iss: this.options.service,
-            scope: this.options.scope,
-            sub: this.options.user,
-            aud: this.options.accessUrl,
-            iat: iat,
-            exp: iat + this.options.serviceRequestTimeout,
-        }, this.options.privateKey);
-
-        urlOptions = {
-            grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-            assertion: token
-        };
-    }
-    else {
-        // web app - https://developers.google.com/identity/protocols/OAuth2WebServer
-        urlOptions = {
-            client_id: this.options.clientId || '',
-            client_secret: this.options.clientSecret || '',
-            refresh_token: this.options.refreshToken,
-            grant_type: 'refresh_token'
-        };
-    }
-
-    for (var param in this.options.customParams) {
-        urlOptions[param] = this.options.customParams[param];
-    }
-
-    var payload = querystring.stringify(urlOptions);
-    var self = this;
-    postRequest(this.options.accessUrl, payload, this.options, function (error, response, body) {
-        var data;
-
-        if (error) {
-            return callback(error);
-        }
-
-        try {
-            data = JSON.parse(body.toString());
-        } catch (E) {
-            return callback(E);
-        }
-
-        if (!data || typeof data !== 'object') {
-            return callback(new Error('Invalid authentication response'));
-        }
-
-        if (data.error) {
-            return callback(new Error(data.error));
-        }
-
-        if (data.access_token) {
-            self.updateToken(data.access_token, data.expires_in);
-            return callback(null, self.token, self.accessToken);
-        }
-
-        return callback(new Error('No access token'));
-    });
-};
-
-/**
- * Converts an access_token and user id into a base64 encoded XOAuth2 token
- *
- * @param {String} accessToken Access token string
- * @return {String} Base64 encoded token for IMAP or SMTP login
- */
-XOAuth2Generator.prototype.buildXOAuth2Token = function(accessToken) {
-    var authData = [
-        'user=' + (this.options.user || ''),
-        'auth=Bearer ' + accessToken,
-        '',
-        ''
-    ];
-    return new Buffer(authData.join('\x01'), 'utf-8').toString('base64');
-};
-
-/**
- * Custom POST request handler.
- * This is only needed to keep paths short in Windows – usually this module
- * is a dependency of a dependency and if it tries to require something
- * like the request module the paths get way too long to handle for Windows.
- * As we do only a simple POST request we do not actually require complicated
- * logic support (no redirects, no nothing) anyway.
- *
- * @param {String} url Url to POST to
- * @param {String|Buffer} payload Payload to POST
- * @param {Function} callback Callback function with (err, buff)
- */
-function postRequest(url, payload, params, callback) {
-    var options = urllib.parse(url),
-        finished = false,
-        response = null,
-        req;
-
-    options.method = 'POST';
-
-    /**
-     * Cleanup all the event listeners registered on the request, and ensure that *callback* is only called one time
-     *
-     * @note passes all the arguments passed to this function to *callback*
-     */
-    var cleanupAndCallback = function() {
-        if (finished === true) {
-            return;
-        }
-        finished = true;
-        req.removeAllListeners();
-        if (response !== null) {
-            response.removeAllListeners();
-        }
-        callback.apply(null, arguments);
-    };
-
-    req = (options.protocol === 'https:' ? https : http).request(options, function(res) {
-        response = res;
-        var data = [];
-        var datalen = 0;
-
-        res.on('data', function(chunk) {
-            data.push(chunk);
-            datalen += chunk.length;
-        });
-
-        res.on('end', function() {
-            return cleanupAndCallback(null, res, Buffer.concat(data, datalen));
-        });
-
-        res.on('error', function(err) {
-            return cleanupAndCallback(err);
-        });
-    });
-
-    req.on('error', function(err) {
-        return cleanupAndCallback(err);
-    });
-
-    if (payload) {
-        req.setHeader('Content-Type', 'application/x-www-form-urlencoded');
-        req.setHeader('Content-Length', typeof payload === 'string' ? Buffer.byteLength(payload) : payload.length);
-    }
-
-    for (var customHeaderName in params.customHeaders) {
-      req.setHeader(customHeaderName, params.customHeaders[customHeaderName]);
-    }
-
-    req.end(payload);
-}
-
-/**
- * Encodes a buffer or a string into Base64url format
- *
- * @param {Buffer|String} data The data to convert
- * @return {String} The encoded string
- */
-function toBase64URL(data) {
-    if (typeof data === 'string') {
-        data = new Buffer(data);
-    }
-
-    return data.toString('base64')
-        .replace(/=+/g, '')     // remove '='s
-        .replace(/\+/g, '-')    // '+' → '-'
-        .replace(/\//g, '_');   // '/' → '_'
-}
-
-/**
- * Header used for RS256 JSON Web Tokens, encoded as Base64URL.
- */
-var JWT_RS256_HEADER = toBase64URL('{"alg":"RS256","typ":"JWT"}');
-
-/**
- * Creates a JSON Web Token signed with RS256 (SHA256 + RSA)
- * Only this specific operation is needed so it's implemented here
- * instead of depending on jsonwebtoken.
- *
- * @param {Object} payload The payload to include in the generated token
- * @param {String} privateKey Private key in PEM format for signing the token
- * @return {String} The generated and signed token
- */
-function jwtSignRS256(payload, privateKey) {
-    var signaturePayload = JWT_RS256_HEADER + '.' + toBase64URL(JSON.stringify(payload));
-
-    var rs256Signer = crypto.createSign('RSA-SHA256');
-    rs256Signer.update(signaturePayload);
-    var signature = toBase64URL(rs256Signer.sign(privateKey));
-
-    return signaturePayload + '.' + signature;
-}
-
-
-/***/ }),
-/* 119 */
-/***/ (function(module, exports) {
-
-module.exports = require("querystring");
 
 /***/ })
 /******/ ])));
