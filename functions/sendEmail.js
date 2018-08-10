@@ -7360,7 +7360,7 @@ exports.handler = function (event, context, callback) {
     html: '<p>' + requestBody.message + '</p>'
   };
 
-  transporter.sendMail(mailOptions, function (err, info) {
+  transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
       callback(null, {

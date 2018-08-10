@@ -20,7 +20,7 @@ exports.handler = (event, context, callback) => {
     html: `<p>${requestBody.message}</p>`
   }
 
-  transporter.sendMail(mailOptions, (err, info) => {
+  transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.log(error);
       callback(null, {
