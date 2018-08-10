@@ -1,6 +1,7 @@
 import React from 'react';
 import CheckoutButton from './CheckoutButton';
 import axios from 'axios';
+import config from '../client-config';
 
 class Register extends React.Component {
   constructor(props) {
