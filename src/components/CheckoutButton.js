@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-unfetch';
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios';
 
 import config from '../client-config';
 
