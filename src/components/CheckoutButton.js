@@ -12,19 +12,6 @@ class Register extends React.Component {
     this.onToken = this.onToken.bind(this);
   }
 
-  sendAdminNotificationOfPurchase() {
-    const { name, email, message } = this.state;
-    axios.post(config.email.apiUrl, {
-      name,
-      email,
-      message
-    }).then(res => {
-      console.log('SUCCESS', res);
-    }).catch(err => {
-      console.log('ERROR', err);
-    });
-  }
-
   onToken(token) {
     console.log('I am sending this token', token);
     fetch(config.stripe.apiUrl, {
@@ -41,6 +28,7 @@ class Register extends React.Component {
       const data = res.json();
       console.log('onToken');
       console.log(data);
+      
       this.props.callback();
 
     }).catch((err) => {
