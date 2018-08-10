@@ -42,6 +42,7 @@ exports.handler = (event, context, callback) => {
       <p><strong>Address:</strong> ${body.addressStreet}, ${body.addressCity}, ${body.addressState}, ${body.addressZip}</p>
       <p><strong>Date Of Birth:</strong> ${body.birthDate}</p>
       <p><strong>Amount Paid</strong> $${body.paid / 100}.00</p>
+      <br>
       <p><strong>The Person Who Told You About Thrive Leadership:</strong> ${body.referral}</p>
       <p><strong>1. The first area of my leadership I'd like clarity in is:</strong></p><p>${body.shortAnswer1}</p>
       <p><strong>2. The second area of my leadership I'd like clarity in is:</strong></p><p>${body.shortAnswer2}</p>

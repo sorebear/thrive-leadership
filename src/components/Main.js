@@ -4,6 +4,9 @@ import Link from 'gatsby-link'
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
+import intro from '../images/intro.jpg';
+import about from '../images/about.jpg';
+import faq from '../images/faq.jpg';
 
 import ContactForm from './ContactForm';
 import Register from './Register';
@@ -11,6 +14,14 @@ import Register from './Register';
 import config from '../client-config';
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.today = new Date();
+    this.superEarlyBirdCutoff = new Date(2018, 7, 20);
+    this.earlyBirdCutoff = new Date(2018, 8, 24);
+    this.amount = this.today > this.earlyBirdCutoff ? 125000 : this.today > this.superEarlyBirdCutoff ? 10000 : 7500;
+  }
+
   render() {
 
     let close = <div className="close" onClick={() => {this.props.onCloseArticle()}}></div>
@@ -21,13 +32,13 @@ class Main extends React.Component {
         <article id="register" className={`${this.props.article === 'register' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Register</h2>
           {/* <span className="image main"><img src={pic03} alt="" /></span> */}
-          <Register amount={100} />
+          <Register amount={this.amount} />
           {close}
         </article>
 
         <article id="intro" className={`${this.props.article === 'intro' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Intro</h2>
-          <span className="image main"><img src={pic01} alt="" /></span>
+          <span className="image main"><img src={intro} alt="" /></span>
           <p>Have you ever asked the question, “What does it mean to BE a leader?” Most of us learn a set of leadership tactics (do this, don’t do that) and are then confused when these tactics don’t universally work the way we want them to! In Thrive Leadership we ask the question, <strong>"Who are you <em>being</em> while you’re doing what you’re doing?”</strong> We look at the character of our leadership in addition to our competence.</p>
           <p>This training will help you uncover your assumptions, beliefs and patterns; and examine how they are working both for and against the vision you have for your leadership.  As your trainers, we are committed to rigorously supporting you and standing for new possibilities in your life.</p>
           {close}
@@ -35,7 +46,7 @@ class Main extends React.Component {
 
         <article id="faq" className={`${this.props.article === 'faq' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">FAQ's</h2>
-          <span className="image main"><img src={pic02} alt="" /></span>
+          <span className="image main"><img src={faq} alt="" /></span>
           <h4>Who attends Thrive Leadership?</h4>
           <p>Leaders of all kinds! Business people, pastors, church members, seasoned leaders, brand new leaders, those in transition. Anyone who wants to experience transformation in their family, relationships, life and leadership!</p>
           <h4>What is the structure of the training?</h4>
@@ -64,7 +75,7 @@ class Main extends React.Component {
 
         <article id="about" className={`${this.props.article === 'about' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">About</h2>
-          <span className="image main"><img src={pic03} alt="" /></span>
+          <span className="image main"><img src={about} alt="" /></span>
           <p>Thrive Leadership is comprised of 4 certified Transformational Trainers. They are:</p>
           <h3>Caitlin Baird</h3>
           <blockquote>"There’s some good in the world and it’s worth fighting for."<br/>Sam, Lord of the Rings.</blockquote>
