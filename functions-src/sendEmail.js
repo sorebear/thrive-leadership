@@ -1,22 +1,42 @@
 const nodemailer = require('nodemailer');
+const xoauth2 = require('xoauth2');
 
 exports.handler = (event, context, callback) => {
   const requestBody = JSON.parse(event.body);
-  const senderName = requestBody.name;
-  const senderEmail = requestBody.email;
-  const senderMessage = requestBody.message;
 
-  let transporter = nodemailer.createTransport();
-  transporter.sendMail({
-    from: `"${senderName}" ${senderEmail}`,
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'caitbaird@gmail.com',
+      pass: process.env.EMAIL_PASSWORD
+    }
+  })
+
+  const mailOptions = {
+    from: `"${requestBody.name}" ${requestBody.email}`,
     to: 'soren@sorenbaird.com',
     subject: `New ThriveLeadership.net Message from ${senderName}`,
-    text: senderMessage,
-    html: `<p>${senderMessage}</p>`
-  }, () => console.log('I am done.'));
+    text: requestBody.message,
+    html: `<p>${requestBody.message}</p>`
+  }
 
-  callback(null, {
-    statusCode: 200,
-    body: JSON.stringify(`Thrive Leadership: You got a message from ${senderName} at ${senderEmail}: ${senderMessage}`),
-  });
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (error) {
+      console.log(error);
+      callback(null, {
+        statusCode: 500,
+        body: JSON.stringify(error),
+      });
+    } else {
+      console.log('Message Sent:', + info.response);
+      callback(null, {
+        statusCode: 200,
+        body: JSON.stringify(info.response),
+      })
+    }
+  })
+
+  
+
+
 }
