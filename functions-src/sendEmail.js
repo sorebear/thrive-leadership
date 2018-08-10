@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 exports.handler = (event, context, callback) => {
-  const requestBody = JSON.parse(event.body);
+  const body = JSON.parse(event.body);
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -14,16 +14,35 @@ exports.handler = (event, context, callback) => {
     }
   });
 
-  const mailOptions = {
+  const mailOptions = body.type === 'newMessage' ? 
+  {
     from: `caitbaird@gmail.com`,
     to: 'soren@sorenbaird.com',
-    subject: `New ThriveLeadership.net Message from ${requestBody.name}`,
-    text: `SENDER NAME: ${requestBody.name}, SENDER EMAIL: ${requestBody.email}, MESSAGE: ${requestBody.message}`,
-    html: `<p><strong>Sender Name:</strong> ${requestBody.name}</p>
-          <p><strong>Sender Email:</stron> ${requestBody.email}</p>
+    subject: `New Thrive Leadership Message from ${body.name}`,
+    text: `SENDER NAME: ${body.name}, SENDER EMAIL: ${body.email}, MESSAGE: ${body.message}`,
+    html: `<p><strong>Sender Name:</strong> ${body.name}</p>
+          <p><strong>Sender Email:</strong> ${body.email}</p>
           <br>
           <p><strong>Message:</strong></p>
-          <p>${requestBody.message}</p>`
+          <p>${body.message}</p>`
+  } : {
+    from: `caitbaird@gmail.com`,
+    to: 'soren@sorenbaird.com',
+    subject: `New Thrive Leadership Registrant: ${body.firstName} ${body.lastName}`,
+    text: `
+      First Name:${body.firstName}, Preferred Name: ${body.preferredName}, Last Name: ${body.lastName}, Phone: ${body.phone}, Email: ${body.email}, Address: ${body.addressStreet}, ${body.addressCity}, ${body.addressState}, ${body.addressZip}, Date Of Birth: ${body.birthDate}, The Person Who Told You About Thrive Leadership: ${body.referral}, 1. The first area of my leadership I'd like clarity in is: ${body.shortAnswer1}, 2. The second area of my leadership I'd like clarity in is: ${body.shortAnswer2}, 3. The third area of my leadership I'd like clarity in is: ${body.shortAnswer3}.`,
+    html: `
+      <p><strong>First Name:</strong> ${body.firstName}</p>
+      <p><strong>Preferred Name:</strong> ${body.preferredName}</p>
+      <p><strong>Last Name:</strong> ${body.lastName}</p>
+      <p><strong>Phone:</strong> ${body.phone}</p>
+      <p><strong>Email:</strong> ${body.email}</p>
+      <p><strong>Address:</strong> ${body.addressStreet}, ${body.addressCity}, ${body.addressState}, ${body.addressZip}</p>
+      <p><strong>Date Of Birth:</strong> ${body.birthDate}</p>
+      <p><strong>The Person Who Told You About Thrive Leadership:</strong> ${body.referral}</p>
+      <p><strong>1. The first area of my leadership I'd like clarity in is:</strong> <br>${body.shortAnswer1}</p>
+      <p><strong>2. The second area of my leadership I'd like clarity in is:</strong> <br>${body.shortAnswer2}</p>
+      <p><strong>3. The third area of my leadership I'd like clarity in is:</strong> <br>${body.shortAnswer3}</p>`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {

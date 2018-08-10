@@ -40,6 +40,8 @@ class Register extends React.Component {
       const data = res.json();
       console.log('onToken');
       console.log(data);
+      this.props.callback();
+
     }).catch((err) => {
       console.log('There was an error sending the info', err);
     });

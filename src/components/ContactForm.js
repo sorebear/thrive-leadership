@@ -21,6 +21,7 @@ class ContactForm extends React.Component {
     e.preventDefault();
     const { name, email, message } = this.state;
     axios.post(config.email.apiUrl, {
+      type: 'newMessage',
       name,
       email,
       message
@@ -59,7 +60,8 @@ class ContactForm extends React.Component {
             name="name"
             autoComplete="name"
             id="name"
-            onChange={this.handleNameInput} value={this.state.name} />
+            onChange={this.handleNameInput} value={this.state.name}
+          />
         </div>
         <div className="field half">
           <label htmlFor="email">Email</label>
