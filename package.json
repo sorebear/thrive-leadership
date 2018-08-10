@@ -36,7 +36,7 @@
     "url": "https://github.com/ChangoMan/gatsby-starter-dimension.git"
   },
   "scripts": {
-    "lambda": "netlify-lambda serve functions-src",
+    "lambda": "netlify-lambda build functions-src",
     "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",

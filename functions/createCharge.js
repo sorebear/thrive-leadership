@@ -71,11 +71,11 @@
 
 
 var http = __webpack_require__(8);
-var https = __webpack_require__(14);
-var path = __webpack_require__(9);
+var https = __webpack_require__(9);
+var path = __webpack_require__(10);
 
 var utils = __webpack_require__(6);
-var Error = __webpack_require__(10);
+var Error = __webpack_require__(11);
 
 var hasOwn = {}.hasOwnProperty;
 
@@ -83,7 +83,7 @@ var hasOwn = {}.hasOwnProperty;
 StripeResource.extend = utils.protoExtend;
 
 // Expose method-creator & prepared (basic) methods
-StripeResource.method = __webpack_require__(24);
+StripeResource.method = __webpack_require__(25);
 StripeResource.BASIC_METHODS = __webpack_require__(44);
 
 /**
@@ -425,7 +425,7 @@ var qs = __webpack_require__(41);
 var crypto = __webpack_require__(3);
 
 var hasOwn = {}.hasOwnProperty;
-var isPlainObject = __webpack_require__(23);
+var isPlainObject = __webpack_require__(24);
 
 var OPTIONS_KEYS = ['api_key', 'idempotency_key', 'stripe_account', 'stripe_version'];
 
@@ -668,10 +668,16 @@ module.exports = require("http");
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = require("path");
+module.exports = require("https");
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -753,18 +759,12 @@ _Error.StripeIdempotencyError = StripeError.extend({type: 'StripeIdempotencyErro
 
 
 /***/ }),
-/* 11 */,
 /* 12 */,
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = require("child_process");
-
-/***/ }),
+/* 13 */,
 /* 14 */
 /***/ (function(module, exports) {
 
-module.exports = require("https");
+module.exports = require("child_process");
 
 /***/ }),
 /* 15 */
@@ -839,7 +839,8 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 /* 17 */,
 /* 18 */,
 /* 19 */,
-/* 20 */
+/* 20 */,
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -948,7 +949,7 @@ module.exports = StripeResource.extend({
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1157,7 +1158,7 @@ exports.isBuffer = function isBuffer(obj) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1182,7 +1183,7 @@ module.exports = {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 /**
@@ -1327,7 +1328,7 @@ module.exports = isPlainObject;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1457,7 +1458,6 @@ module.exports = stripeMethod;
 
 
 /***/ }),
-/* 25 */,
 /* 26 */,
 /* 27 */,
 /* 28 */,
@@ -1482,8 +1482,9 @@ module.exports.handler = function (event, context, callback) {
   // Pull out the amount and id for the charge from the POST
   console.log(event);
   var requestData = JSON.parse(event.body);
-  console.log(requestData);
-  var amount = requestData.amount;
+  console.log('Request Data', requestData);
+  var currency = requestData.charge.currency;
+  var amount = requestData.charge.amount;
   var token = requestData.token.id;
 
   // Headers to prevent CORS issues
@@ -1496,7 +1497,7 @@ module.exports.handler = function (event, context, callback) {
     // Create Stripe charge with token
     amount: amount,
     source: token,
-    currency: "usd",
+    currency: currency,
     description: "Serverless test Stripe charge"
   }).then(function (charge) {
     // Success response
@@ -1555,14 +1556,14 @@ Stripe.USER_AGENT_SERIALIZED = null;
 var APP_INFO_PROPERTIES = ['name', 'version', 'url'];
 
 var EventEmitter = __webpack_require__(5).EventEmitter;
-var exec = __webpack_require__(13).exec;
+var exec = __webpack_require__(14).exec;
 
 var resourceNamespace = __webpack_require__(39);
 
 var resources = {
   // Support Accounts for consistency, Account for backwards compat
-  Account: __webpack_require__(20),
-  Accounts: __webpack_require__(20),
+  Account: __webpack_require__(21),
+  Accounts: __webpack_require__(21),
   ApplePayDomains: __webpack_require__(45),
   ApplicationFees: __webpack_require__(46),
   Balance: __webpack_require__(47),
@@ -1653,7 +1654,7 @@ function Stripe(key, version) {
   this.setApiKey(key);
   this.setApiVersion(version);
 
-  this.errors = __webpack_require__(10);
+  this.errors = __webpack_require__(11);
   this.webhooks = __webpack_require__(93);
 }
 
@@ -1813,7 +1814,7 @@ module.exports.Stripe = Stripe;
 /* 38 */
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[[{"raw":"stripe@^6.7.0","scope":null,"escapedName":"stripe","name":"stripe","rawSpec":"^6.7.0","spec":">=6.7.0 <7.0.0","type":"range"},"C:\\MyCode\\LEARNING\\GATSBY\\thrive-leadership"]],"_from":"stripe@>=6.7.0 <7.0.0","_id":"stripe@6.7.0","_inCache":true,"_location":"/stripe","_nodeVersion":"9.3.0","_npmOperationalInternal":{"host":"s3://npm-registry-packages","tmp":"tmp/stripe_6.7.0_1533318787825_0.7346850964288896"},"_npmUser":{"name":"brandur","email":"brandur@mutelight.org"},"_npmVersion":"5.6.0","_phantomChildren":{},"_requested":{"raw":"stripe@^6.7.0","scope":null,"escapedName":"stripe","name":"stripe","rawSpec":"^6.7.0","spec":">=6.7.0 <7.0.0","type":"range"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/stripe/-/stripe-6.7.0.tgz","_shasum":"d28a02c0b213e4beacc1413e94946e3014426208","_shrinkwrap":null,"_spec":"stripe@^6.7.0","_where":"C:\\MyCode\\LEARNING\\GATSBY\\thrive-leadership","author":{"name":"Stripe","email":"support@stripe.com","url":"https://stripe.com/"},"bugs":{"url":"https://github.com/stripe/stripe-node/issues"},"bugs:":"https://github.com/stripe/stripe-node/issues","contributors":[{"name":"Ask Bjørn Hansen","email":"ask@develooper.com","url":"http://www.askask.com/"},{"name":"Michelle Bu","email":"michelle@stripe.com"},{"name":"Alex Sexton","email":"alex@stripe.com"},{"name":"James Padolsey"}],"dependencies":{"lodash.isplainobject":"^4.0.6","qs":"~6.5.1","safe-buffer":"^5.1.1"},"description":"Stripe API wrapper","devDependencies":{"chai":"~4.1.2","chai-as-promised":"~7.1.1","coveralls":"^3.0.0","eslint":"^4.19.1","eslint-plugin-chai-friendly":"^0.4.0","mocha":"~5.0.5","nyc":"^11.3.0"},"directories":{},"dist":{"integrity":"sha512-ZSgqpNS35hQJHov2GOpi7zY43X0+esk4Oph/EvrkkV2Mgor7b03b4Yp2GlacNnTirEEzt7NdncTovqB+AHntRg==","shasum":"d28a02c0b213e4beacc1413e94946e3014426208","tarball":"https://registry.npmjs.org/stripe/-/stripe-6.7.0.tgz","fileCount":62,"unpackedSize":88184,"npm-signature":"-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbZJaECRA9TVsSAnZWagAA8EQP/jZ+0fcebbiOrjC5tehh\nBsloTQ4EwaE1vp+JA4SbEIhQnF4GE7PAp4j30dCdS1MCXsG/Hhm9jDytjKth\nIGORPNIrAwOXgKma0+zqWFAVmjBfpO+XqH29jmIcjZCwnJAGnvrMcdluT/Cw\nCsnEZG5Zr4/7r5SdYgH5ijOXIqmcRXkTrmy0tuDFJCpdeAgxVmtfzG+VgPts\nluxHEgx+iiKpFtEIm1rbxonAGcHFbLE2M7PNqflm2VVwH+5B0cHqhRHwO8mx\nju5tB6gWwEr/+ya4L8CUe+LOsDP681VV5uZ4Dj0o01Qt+ny2nhgTOYK3/GyD\nXlwBWcWQPcD5OPYbWnhh4ZbpflwMWORBkkcbGcOwmT7hbFodS2B36zjQKGuy\nIHPNdxDhyOc/hseRv5J7ndOPD32lTVQAaZPlbFAKtWaUOtDsl2uZqzxhGXnN\nGU1oexjAl/4A6Jg86MG7IF/uIeyulhmelS/tI2tPBjdq9i5RCC2Du8ODRQwH\n5icRtcRAEm2BSh4bQABfWOd/qP8c2usDmDX0VUjR7ARljpjHTloovsFcM9NE\nR7mSqVveSaubgwTy+M+TeYxtNtakEORXEDrWitVk4TsRF4HWJCqOB7Injud7\nuoG0iBjVjDJI2uW7tv0uNK48owbqC9hLZQwLpGNIoKiXBDN9gjXBpi2ar3eO\n/rV+\r\n=QkkM\r\n-----END PGP SIGNATURE-----\r\n"},"engines":{"node":">=4"},"gitHead":"d98587a08d5df80884a94fa1ba7897871761f456","homepage":"https://github.com/stripe/stripe-node","keywords":["stripe","payment processing","credit cards","api"],"license":"MIT","main":"lib/stripe.js","maintainers":[{"name":"bkrausz","email":"briankrausz@gmail.com"},{"name":"brandur","email":"brandur@mutelight.org"},{"name":"enugent","email":"enugent@stripe.com"},{"name":"grey-stripe","email":"grey@stripe.com"},{"name":"kjc","email":"kjc@stripe.com"},{"name":"michelle","email":"michelle@michellebu.com"},{"name":"ob-stripe","email":"ob@stripe.com"},{"name":"slexaxton","email":"alexsexton@gmail.com"},{"name":"stripejs","email":"frontend-contact@stripe.com"}],"name":"stripe","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git://github.com/stripe/stripe-node.git"},"scripts":{"clean":"rm -rf ./.nyc_output ./node_modules/.cache ./coverage","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","lint":"eslint .","mocha":"nyc mocha","report":"nyc -r text -r lcov report","test":"npm run lint && npm run mocha"},"version":"6.7.0"}
+module.exports = {"_from":"stripe","_id":"stripe@6.7.0","_inBundle":false,"_integrity":"sha512-ZSgqpNS35hQJHov2GOpi7zY43X0+esk4Oph/EvrkkV2Mgor7b03b4Yp2GlacNnTirEEzt7NdncTovqB+AHntRg==","_location":"/stripe","_phantomChildren":{},"_requested":{"type":"tag","registry":true,"raw":"stripe","name":"stripe","escapedName":"stripe","rawSpec":"","saveSpec":null,"fetchSpec":"latest"},"_requiredBy":["#USER","/"],"_resolved":"https://registry.npmjs.org/stripe/-/stripe-6.7.0.tgz","_shasum":"d28a02c0b213e4beacc1413e94946e3014426208","_spec":"stripe","_where":"/Users/sorenbaird/Desktop/Code/thrive-leadership","author":{"name":"Stripe","email":"support@stripe.com","url":"https://stripe.com/"},"bugs":{"url":"https://github.com/stripe/stripe-node/issues"},"bugs:":"https://github.com/stripe/stripe-node/issues","bundleDependencies":false,"contributors":[{"name":"Ask Bjørn Hansen","email":"ask@develooper.com","url":"http://www.askask.com/"},{"name":"Michelle Bu","email":"michelle@stripe.com"},{"name":"Alex Sexton","email":"alex@stripe.com"},{"name":"James Padolsey"}],"dependencies":{"lodash.isplainobject":"^4.0.6","qs":"~6.5.1","safe-buffer":"^5.1.1"},"deprecated":false,"description":"Stripe API wrapper","devDependencies":{"chai":"~4.1.2","chai-as-promised":"~7.1.1","coveralls":"^3.0.0","eslint":"^4.19.1","eslint-plugin-chai-friendly":"^0.4.0","mocha":"~5.0.5","nyc":"^11.3.0"},"engines":{"node":">=4"},"homepage":"https://github.com/stripe/stripe-node","keywords":["stripe","payment processing","credit cards","api"],"license":"MIT","main":"lib/stripe.js","name":"stripe","repository":{"type":"git","url":"git://github.com/stripe/stripe-node.git"},"scripts":{"clean":"rm -rf ./.nyc_output ./node_modules/.cache ./coverage","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","lint":"eslint .","mocha":"nyc mocha","report":"nyc -r text -r lcov report","test":"npm run lint && npm run mocha"},"version":"6.7.0"}
 
 /***/ }),
 /* 39 */
@@ -1859,7 +1860,7 @@ module.exports = require("buffer");
 
 var stringify = __webpack_require__(42);
 var parse = __webpack_require__(43);
-var formats = __webpack_require__(22);
+var formats = __webpack_require__(23);
 
 module.exports = {
     formats: formats,
@@ -1875,8 +1876,8 @@ module.exports = {
 "use strict";
 
 
-var utils = __webpack_require__(21);
-var formats = __webpack_require__(22);
+var utils = __webpack_require__(22);
+var formats = __webpack_require__(23);
 
 var arrayPrefixGenerators = {
     brackets: function brackets(prefix) { // eslint-disable-line func-name-matching
@@ -2092,7 +2093,7 @@ module.exports = function (object, opts) {
 "use strict";
 
 
-var utils = __webpack_require__(21);
+var utils = __webpack_require__(22);
 
 var has = Object.prototype.hasOwnProperty;
 
@@ -2273,8 +2274,8 @@ module.exports = function (str, opts) {
 "use strict";
 
 
-var isPlainObject = __webpack_require__(23);
-var stripeMethod = __webpack_require__(24);
+var isPlainObject = __webpack_require__(24);
+var stripeMethod = __webpack_require__(25);
 
 module.exports = {
 
@@ -2912,7 +2913,7 @@ var utils = __webpack_require__(6);
 var StripeResource = __webpack_require__(0);
 var stripeMethod = StripeResource.method;
 var multipartDataGenerator = __webpack_require__(59);
-var Error = __webpack_require__(10);
+var Error = __webpack_require__(11);
 
 module.exports = StripeResource.extend({
 
@@ -3925,7 +3926,7 @@ module.exports = StripeResource.extend({
 var crypto = __webpack_require__(3);
 
 var utils = __webpack_require__(6);
-var Error = __webpack_require__(10);
+var Error = __webpack_require__(11);
 
 var Webhook = {
   DEFAULT_TOLERANCE: 300,

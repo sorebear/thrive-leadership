@@ -80,9 +80,9 @@ module.exports = require("stream");
 
 
 const urllib = __webpack_require__(7);
-const util = __webpack_require__(25);
-const fs = __webpack_require__(16);
-const fetch = __webpack_require__(11);
+const util = __webpack_require__(16);
+const fs = __webpack_require__(17);
+const fetch = __webpack_require__(12);
 
 /**
  * Parses connection url to a structured configuration object
@@ -474,7 +474,7 @@ module.exports = require("crypto");
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[[{"raw":"nodemailer","scope":null,"escapedName":"nodemailer","name":"nodemailer","rawSpec":"","spec":"latest","type":"tag"},"C:\\MyCode\\LEARNING\\GATSBY\\thrive-leadership"]],"_from":"nodemailer@latest","_id":"nodemailer@4.6.7","_inCache":true,"_location":"/nodemailer","_nodeVersion":"10.4.0","_npmOperationalInternal":{"host":"s3://npm-registry-packages","tmp":"tmp/nodemailer_4.6.7_1529060125982_0.08889812474796543"},"_npmUser":{"name":"andris","email":"andris@kreata.ee"},"_npmVersion":"6.1.0","_phantomChildren":{},"_requested":{"raw":"nodemailer","scope":null,"escapedName":"nodemailer","name":"nodemailer","rawSpec":"","spec":"latest","type":"tag"},"_requiredBy":["#USER","/"],"_resolved":"https://registry.npmjs.org/nodemailer/-/nodemailer-4.6.7.tgz","_shasum":"b68de7f36d65618bdeeeb76234e3547d51266373","_shrinkwrap":null,"_spec":"nodemailer","_where":"C:\\MyCode\\LEARNING\\GATSBY\\thrive-leadership","author":{"name":"Andris Reinman"},"bugs":{"url":"https://github.com/nodemailer/nodemailer/issues"},"dependencies":{},"description":"Easy as cake e-mail sending from your Node.js applications","devDependencies":{"bunyan":"^1.8.12","chai":"^4.1.2","eslint-config-nodemailer":"^1.2.0","grunt":"^1.0.3","grunt-cli":"^1.2.0","grunt-eslint":"^20.2.0","grunt-mocha-test":"^0.13.3","libbase64":"^1.0.2","libmime":"^3.1.0","libqp":"^1.1.0","mocha":"^5.2.0","proxy":"^0.2.4","proxy-test-server":"^1.0.0","sinon":"^5.1.1","smtp-server":"^3.4.5"},"directories":{},"dist":{"integrity":"sha512-GIAAYvs9XIP1fBa8wR89ukUh3yjL44pom5LKY5nTZcL+Zp9sRkqL8wgskyBQECQg9CPsDX/fjTZx8MNz20t0jA==","shasum":"b68de7f36d65618bdeeeb76234e3547d51266373","tarball":"https://registry.npmjs.org/nodemailer/-/nodemailer-4.6.7.tgz","fileCount":38,"unpackedSize":444181,"npm-signature":"-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbI5sgCRA9TVsSAnZWagAANigP/ivynWN7GuwZSYQMAbxd\n9MlwAcr17XcHr7g5YLRN4+G4BjSXG5m92OuZDjEHSpdX3NX9RnxFZwYCMf5C\ny1txbD27p8zVSWfyM5uix0XbMvvzh/OdwsYemUEYz1mRdItlvxaLdYF+YWnF\nMG2REkgpssmeNIydeUKu5KTbH9vTUdDauwbMCm1DSPvNfGH6tbKNMjTkWa34\ngU6n8uvhXn2LG7YB8w/+rFEuLE0NMSSSE7hnMlaS6bbcDx2YMZAejQzOfJd2\nrjhPcFHhQc1we4SbOZFuYUnpq+ZSslNqw/jmEPlY7WW/EGJS+7QfFofzoB3I\n4Kgj2qR/vKo4kx+5bBPAq/BMchAgcNdjM58Vsd5bu3D4KVYJnkzUm1bun+ZB\nN5THcfebKa6F9gGqrkpGA04+EYXswTYMd1aqddlbpZIBv96bD1IjaVaA0xju\n6GWCExnBNJJ3Hwx5nii9eDM6czkhDDVltBpazHjlBJPlX3gzW7stLLZoGfAu\nflNUCuDbk8f7VP2xkbpk0F4MykBoqEPcN/W45vazbeT6GiWB7ElmAF86eimZ\n/cIFDiJ2qzs8g+1RBm0xIjUmGEG4hk1Bwlw9NaCu1r2l1Zt3PhbaxkQeuuGW\n+P5+fvGpRuCMW25Z/5dNCk3Izbi5p9gCo4d06Y6vHYUp8uWpHjxztiH+CC8i\no1TL\r\n=rmIq\r\n-----END PGP SIGNATURE-----\r\n"},"engines":{"node":">=6.0.0"},"gitHead":"9464025862293e549bb322036c16dfb5c3521b34","homepage":"https://nodemailer.com/","keywords":["Nodemailer"],"license":"MIT","main":"lib/nodemailer.js","maintainers":[{"name":"andris","email":"andris@node.ee"}],"name":"nodemailer","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git+https://github.com/nodemailer/nodemailer.git"},"scripts":{"test":"grunt"},"version":"4.6.7"}
+module.exports = {"_from":"nodemailer@^4.6.7","_id":"nodemailer@4.6.7","_inBundle":false,"_integrity":"sha512-GIAAYvs9XIP1fBa8wR89ukUh3yjL44pom5LKY5nTZcL+Zp9sRkqL8wgskyBQECQg9CPsDX/fjTZx8MNz20t0jA==","_location":"/nodemailer","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"nodemailer@^4.6.7","name":"nodemailer","escapedName":"nodemailer","rawSpec":"^4.6.7","saveSpec":null,"fetchSpec":"^4.6.7"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/nodemailer/-/nodemailer-4.6.7.tgz","_shasum":"b68de7f36d65618bdeeeb76234e3547d51266373","_spec":"nodemailer@^4.6.7","_where":"/Users/sorenbaird/Desktop/Code/thrive-leadership","author":{"name":"Andris Reinman"},"bugs":{"url":"https://github.com/nodemailer/nodemailer/issues"},"bundleDependencies":false,"dependencies":{},"deprecated":false,"description":"Easy as cake e-mail sending from your Node.js applications","devDependencies":{"bunyan":"^1.8.12","chai":"^4.1.2","eslint-config-nodemailer":"^1.2.0","grunt":"^1.0.3","grunt-cli":"^1.2.0","grunt-eslint":"^20.2.0","grunt-mocha-test":"^0.13.3","libbase64":"^1.0.2","libmime":"^3.1.0","libqp":"^1.1.0","mocha":"^5.2.0","proxy":"^0.2.4","proxy-test-server":"^1.0.0","sinon":"^5.1.1","smtp-server":"^3.4.5"},"engines":{"node":">=6.0.0"},"homepage":"https://nodemailer.com/","keywords":["Nodemailer"],"license":"MIT","main":"lib/nodemailer.js","name":"nodemailer","repository":{"type":"git","url":"git+https://github.com/nodemailer/nodemailer.git"},"scripts":{"test":"grunt"},"version":"4.6.7"}
 
 /***/ }),
 /* 5 */
@@ -499,18 +499,24 @@ module.exports = require("http");
 /* 9 */
 /***/ (function(module, exports) {
 
+module.exports = require("https");
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
 module.exports = require("path");
 
 /***/ }),
-/* 10 */,
-/* 11 */
+/* 11 */,
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 const http = __webpack_require__(8);
-const https = __webpack_require__(14);
+const https = __webpack_require__(9);
 const urllib = __webpack_require__(7);
 const zlib = __webpack_require__(97);
 const PassThrough = __webpack_require__(1).PassThrough;
@@ -787,7 +793,7 @@ function fetch(url, options) {
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1422,32 +1428,32 @@ module.exports = {
 
 
 /***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = require("child_process");
-
-/***/ }),
 /* 14 */
 /***/ (function(module, exports) {
 
-module.exports = require("https");
+module.exports = require("child_process");
 
 /***/ }),
 /* 15 */,
 /* 16 */
 /***/ (function(module, exports) {
 
-module.exports = require("fs");
+module.exports = require("util");
 
 /***/ }),
 /* 17 */
 /***/ (function(module, exports) {
 
-module.exports = require("net");
+module.exports = require("fs");
 
 /***/ }),
 /* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("net");
+
+/***/ }),
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1455,7 +1461,7 @@ module.exports = require("net");
 
 const packageInfo = __webpack_require__(4);
 const EventEmitter = __webpack_require__(5).EventEmitter;
-const net = __webpack_require__(17);
+const net = __webpack_require__(18);
 const tls = __webpack_require__(32);
 const os = __webpack_require__(28);
 const crypto = __webpack_require__(3);
@@ -3023,7 +3029,7 @@ module.exports = SMTPConnection;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3082,17 +3088,11 @@ module.exports = LeWindows;
 
 
 /***/ }),
-/* 20 */,
 /* 21 */,
 /* 22 */,
 /* 23 */,
 /* 24 */,
-/* 25 */
-/***/ (function(module, exports) {
-
-module.exports = require("util");
-
-/***/ }),
+/* 25 */,
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3101,7 +3101,7 @@ module.exports = require("util");
 
 
 
-const path = __webpack_require__(9);
+const path = __webpack_require__(10);
 
 const defaultMimeType = 'application/octet-stream';
 const defaultExtension = 'bin';
@@ -5219,15 +5219,15 @@ module.exports = {
 
 const crypto = __webpack_require__(3);
 const os = __webpack_require__(28);
-const fs = __webpack_require__(16);
+const fs = __webpack_require__(17);
 const punycode = __webpack_require__(29);
 const PassThrough = __webpack_require__(1).PassThrough;
 
-const mimeFuncs = __webpack_require__(12);
+const mimeFuncs = __webpack_require__(13);
 const qp = __webpack_require__(31);
 const base64 = __webpack_require__(30);
 const addressparser = __webpack_require__(100);
-const fetch = __webpack_require__(11);
+const fetch = __webpack_require__(12);
 const LastNewline = __webpack_require__(101);
 
 /**
@@ -6858,7 +6858,7 @@ module.exports = require("tls");
 
 
 const Stream = __webpack_require__(1).Stream;
-const fetch = __webpack_require__(11);
+const fetch = __webpack_require__(12);
 const crypto = __webpack_require__(3);
 const shared = __webpack_require__(2);
 
@@ -7339,21 +7339,41 @@ module.exports = LeWindows;
 
 
 var nodemailer = __webpack_require__(95);
+var xoauth2 = __webpack_require__(118);
 
 exports.handler = function (event, context, callback) {
-  console.log('My Test Variable', process.env.TEST_VAR);
-  console.log('EVENT BOYD', event.body);
-  console.log('PARSED EVENT BODY', JSON.parse(event.body));
-  console.log('EVENT', event);
   var requestBody = JSON.parse(event.body);
 
-  var senderName = requestBody.name;
-  var senderEmail = requestBody.email;
-  var senderMessage = requestBody.message;
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'caitbaird@gmail.com',
+      pass: process.env.EMAIL_PASSWORD
+    }
+  });
 
-  callback(null, {
-    statusCode: 200,
-    body: JSON.stringify('Thrive Leadership: You got a message from ' + senderName + ' at ' + senderEmail + ': ' + senderMessage)
+  var mailOptions = {
+    from: '"' + requestBody.name + '" ' + requestBody.email,
+    to: 'soren@sorenbaird.com',
+    subject: 'New ThriveLeadership.net Message from ' + requestBody.name,
+    text: requestBody.message,
+    html: '<p>' + requestBody.message + '</p>'
+  };
+
+  transporter.sendMail(mailOptions, function (err, info) {
+    if (error) {
+      console.log(error);
+      callback(null, {
+        statusCode: 500,
+        body: JSON.stringify(error)
+      });
+    } else {
+      console.log('Message Sent:', +info.response);
+      callback(null, {
+        statusCode: 200,
+        body: JSON.stringify(info.response)
+      });
+    }
   });
 };
 
@@ -7372,7 +7392,7 @@ const SendmailTransport = __webpack_require__(114);
 const StreamTransport = __webpack_require__(115);
 const JSONTransport = __webpack_require__(116);
 const SESTransport = __webpack_require__(117);
-const fetch = __webpack_require__(11);
+const fetch = __webpack_require__(12);
 const packageData = __webpack_require__(4);
 
 const ETHEREAL_API = (process.env.ETHEREAL_API || 'https://api.nodemailer.com').replace(/\/+$/, '');
@@ -7525,11 +7545,11 @@ const mimeTypes = __webpack_require__(26);
 const MailComposer = __webpack_require__(99);
 const DKIM = __webpack_require__(102);
 const httpProxyClient = __webpack_require__(106);
-const util = __webpack_require__(25);
+const util = __webpack_require__(16);
 const urllib = __webpack_require__(7);
 const packageData = __webpack_require__(4);
 const MailMessage = __webpack_require__(107);
-const net = __webpack_require__(17);
+const net = __webpack_require__(18);
 const dns = __webpack_require__(108);
 const crypto = __webpack_require__(3);
 
@@ -8249,7 +8269,7 @@ module.exports = Cookies;
 
 
 const MimeNode = __webpack_require__(27);
-const mimeFuncs = __webpack_require__(12);
+const mimeFuncs = __webpack_require__(13);
 
 /**
  * Creates the object for composing a MimeNode instance out from the mail options
@@ -9144,8 +9164,8 @@ const MessageParser = __webpack_require__(103);
 const RelaxedBody = __webpack_require__(104);
 const sign = __webpack_require__(105);
 const PassThrough = __webpack_require__(1).PassThrough;
-const fs = __webpack_require__(16);
-const path = __webpack_require__(9);
+const fs = __webpack_require__(17);
+const path = __webpack_require__(10);
 const crypto = __webpack_require__(3);
 
 const DKIM_ALGO = 'sha256';
@@ -9720,7 +9740,7 @@ module.exports = RelaxedBody;
 
 
 const punycode = __webpack_require__(29);
-const mimeFuncs = __webpack_require__(12);
+const mimeFuncs = __webpack_require__(13);
 const crypto = __webpack_require__(3);
 
 /**
@@ -9847,7 +9867,7 @@ function relaxedHeaderLine(line) {
  * Minimal HTTP/S proxy client
  */
 
-const net = __webpack_require__(17);
+const net = __webpack_require__(18);
 const tls = __webpack_require__(32);
 const urllib = __webpack_require__(7);
 
@@ -9983,7 +10003,7 @@ module.exports = httpProxyClient;
 
 const shared = __webpack_require__(2);
 const MimeNode = __webpack_require__(27);
-const mimeFuncs = __webpack_require__(12);
+const mimeFuncs = __webpack_require__(13);
 
 class MailMessage {
     constructor(mailer, data) {
@@ -10291,7 +10311,7 @@ module.exports = require("dns");
 
 const EventEmitter = __webpack_require__(5);
 const PoolResource = __webpack_require__(110);
-const SMTPConnection = __webpack_require__(18);
+const SMTPConnection = __webpack_require__(19);
 const wellKnown = __webpack_require__(34);
 const shared = __webpack_require__(2);
 const packageData = __webpack_require__(4);
@@ -10896,7 +10916,7 @@ module.exports = SMTPPool;
 "use strict";
 
 
-const SMTPConnection = __webpack_require__(18);
+const SMTPConnection = __webpack_require__(19);
 const assign = __webpack_require__(2).assign;
 const XOAuth2 = __webpack_require__(33);
 const EventEmitter = __webpack_require__(5);
@@ -11277,7 +11297,7 @@ module.exports = {"126":{"host":"smtp.126.com","port":465,"secure":true},"163":{
 
 
 const EventEmitter = __webpack_require__(5);
-const SMTPConnection = __webpack_require__(18);
+const SMTPConnection = __webpack_require__(19);
 const wellKnown = __webpack_require__(34);
 const shared = __webpack_require__(2);
 const XOAuth2 = __webpack_require__(33);
@@ -11690,9 +11710,9 @@ module.exports = SMTPTransport;
 "use strict";
 
 
-const spawn = __webpack_require__(13).spawn;
+const spawn = __webpack_require__(14).spawn;
 const packageData = __webpack_require__(4);
-const LeWindows = __webpack_require__(19);
+const LeWindows = __webpack_require__(20);
 const LeUnix = __webpack_require__(35);
 const shared = __webpack_require__(2);
 
@@ -11907,7 +11927,7 @@ module.exports = SendmailTransport;
 
 const packageData = __webpack_require__(4);
 const shared = __webpack_require__(2);
-const LeWindows = __webpack_require__(19);
+const LeWindows = __webpack_require__(20);
 const LeUnix = __webpack_require__(35);
 
 /**
@@ -12146,7 +12166,7 @@ module.exports = JSONTransport;
 const EventEmitter = __webpack_require__(5);
 const packageData = __webpack_require__(4);
 const shared = __webpack_require__(2);
-const LeWindows = __webpack_require__(19);
+const LeWindows = __webpack_require__(20);
 
 /**
  * Generates a Transport object for Sendmail
@@ -12453,6 +12473,318 @@ class SESTransport extends EventEmitter {
 
 module.exports = SESTransport;
 
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Stream = __webpack_require__(1).Stream;
+var utillib = __webpack_require__(16);
+var querystring = __webpack_require__(119);
+var http = __webpack_require__(8);
+var https = __webpack_require__(9);
+var urllib = __webpack_require__(7);
+var crypto = __webpack_require__(3);
+
+/**
+ * Wrapper for new XOAuth2Generator.
+ *
+ * Usage:
+ *
+ *     var xoauthgen = createXOAuth2Generator({});
+ *     xoauthgen.getToken(function(err, xoauthtoken){
+ *         socket.send('AUTH XOAUTH2 ' + xoauthtoken);
+ *     });
+ *
+ * @param {Object} options See XOAuth2Generator for details
+ * @return {Object}
+ */
+module.exports.createXOAuth2Generator = function(options) {
+    return new XOAuth2Generator(options);
+};
+
+/**
+ * XOAUTH2 access_token generator for Gmail.
+ * Create client ID for web applications in Google API console to use it.
+ * See Offline Access for receiving the needed refreshToken for an user
+ * https://developers.google.com/accounts/docs/OAuth2WebServer#offline
+ *
+ * @constructor
+ * @param {Object} options Client information for token generation
+ * @param {String} options.user         (Required) User e-mail address
+ * @param {String} options.clientId     (Required) Client ID value
+ * @param {String} options.clientSecret (Required) Client secret value
+ * @param {String} options.refreshToken (Required) Refresh token for an user
+ * @param {String} options.accessUrl    (Optional) Endpoint for token generation, defaults to 'https://accounts.google.com/o/oauth2/token'
+ * @param {String} options.accessToken  (Optional) An existing valid accessToken
+ * @param {int}    options.timeout      (Optional) TTL in seconds
+ */
+function XOAuth2Generator(options) {
+    Stream.call(this);
+    this.options = options || {};
+
+    if (options && options.service) {
+        if (!options.scope || !options.privateKey || !options.user) {
+            throw new Error('Options "scope", "privateKey" and "user" are required for service account!');
+        }
+
+        var serviceRequestTimeout = Math.min(Math.max(Number(this.options.serviceRequestTimeout) || 0, 0), 3600);
+        this.options.serviceRequestTimeout = serviceRequestTimeout || 5 * 60;
+    }
+
+    this.options.accessUrl = this.options.accessUrl || 'https://accounts.google.com/o/oauth2/token';
+    this.options.customHeaders = this.options.customHeaders || {};
+    this.options.customParams = this.options.customParams || {};
+
+    this.token = this.options.accessToken && this.buildXOAuth2Token(this.options.accessToken) || false;
+    this.accessToken = this.token && this.options.accessToken || false;
+
+    var timeout = Math.max(Number(this.options.timeout) || 0, 0);
+    this.timeout = timeout && Date.now() + timeout * 1000 || 0;
+}
+utillib.inherits(XOAuth2Generator, Stream);
+
+/**
+ * Returns or generates (if previous has expired) a XOAuth2 token
+ *
+ * @param {Function} callback Callback function with error object and token string
+ */
+XOAuth2Generator.prototype.getToken = function(callback) {
+    if (this.token && (!this.timeout || this.timeout > Date.now())) {
+        return callback(null, this.token, this.accessToken);
+    }
+    this.generateToken(callback);
+};
+
+/**
+ * Updates token values
+ *
+ * @param {String} accessToken New access token
+ * @param {Number} timeout Access token lifetime in seconds
+ *
+ * Emits 'token': { user: User email-address, accessToken: the new accessToken, timeout: TTL in seconds}
+ */
+XOAuth2Generator.prototype.updateToken = function(accessToken, timeout) {
+    this.token = this.buildXOAuth2Token(accessToken);
+    this.accessToken = accessToken;
+    timeout = Math.max(Number(timeout) || 0, 0);
+    this.timeout = timeout && Date.now() + timeout * 1000 || 0;
+
+    this.emit('token', {
+        user: this.options.user,
+        accessToken: accessToken || '',
+        timeout: Math.max(Math.floor((this.timeout - Date.now()) / 1000), 0)
+    });
+};
+
+/**
+ * Generates a new XOAuth2 token with the credentials provided at initialization
+ *
+ * @param {Function} callback Callback function with error object and token string
+ */
+XOAuth2Generator.prototype.generateToken = function(callback) {
+    var urlOptions;
+    if (this.options.service) {
+        // service account - https://developers.google.com/identity/protocols/OAuth2ServiceAccount
+        var iat = Math.floor(Date.now() / 1000); // unix time
+        var token = jwtSignRS256({
+            iss: this.options.service,
+            scope: this.options.scope,
+            sub: this.options.user,
+            aud: this.options.accessUrl,
+            iat: iat,
+            exp: iat + this.options.serviceRequestTimeout,
+        }, this.options.privateKey);
+
+        urlOptions = {
+            grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+            assertion: token
+        };
+    }
+    else {
+        // web app - https://developers.google.com/identity/protocols/OAuth2WebServer
+        urlOptions = {
+            client_id: this.options.clientId || '',
+            client_secret: this.options.clientSecret || '',
+            refresh_token: this.options.refreshToken,
+            grant_type: 'refresh_token'
+        };
+    }
+
+    for (var param in this.options.customParams) {
+        urlOptions[param] = this.options.customParams[param];
+    }
+
+    var payload = querystring.stringify(urlOptions);
+    var self = this;
+    postRequest(this.options.accessUrl, payload, this.options, function (error, response, body) {
+        var data;
+
+        if (error) {
+            return callback(error);
+        }
+
+        try {
+            data = JSON.parse(body.toString());
+        } catch (E) {
+            return callback(E);
+        }
+
+        if (!data || typeof data !== 'object') {
+            return callback(new Error('Invalid authentication response'));
+        }
+
+        if (data.error) {
+            return callback(new Error(data.error));
+        }
+
+        if (data.access_token) {
+            self.updateToken(data.access_token, data.expires_in);
+            return callback(null, self.token, self.accessToken);
+        }
+
+        return callback(new Error('No access token'));
+    });
+};
+
+/**
+ * Converts an access_token and user id into a base64 encoded XOAuth2 token
+ *
+ * @param {String} accessToken Access token string
+ * @return {String} Base64 encoded token for IMAP or SMTP login
+ */
+XOAuth2Generator.prototype.buildXOAuth2Token = function(accessToken) {
+    var authData = [
+        'user=' + (this.options.user || ''),
+        'auth=Bearer ' + accessToken,
+        '',
+        ''
+    ];
+    return new Buffer(authData.join('\x01'), 'utf-8').toString('base64');
+};
+
+/**
+ * Custom POST request handler.
+ * This is only needed to keep paths short in Windows – usually this module
+ * is a dependency of a dependency and if it tries to require something
+ * like the request module the paths get way too long to handle for Windows.
+ * As we do only a simple POST request we do not actually require complicated
+ * logic support (no redirects, no nothing) anyway.
+ *
+ * @param {String} url Url to POST to
+ * @param {String|Buffer} payload Payload to POST
+ * @param {Function} callback Callback function with (err, buff)
+ */
+function postRequest(url, payload, params, callback) {
+    var options = urllib.parse(url),
+        finished = false,
+        response = null,
+        req;
+
+    options.method = 'POST';
+
+    /**
+     * Cleanup all the event listeners registered on the request, and ensure that *callback* is only called one time
+     *
+     * @note passes all the arguments passed to this function to *callback*
+     */
+    var cleanupAndCallback = function() {
+        if (finished === true) {
+            return;
+        }
+        finished = true;
+        req.removeAllListeners();
+        if (response !== null) {
+            response.removeAllListeners();
+        }
+        callback.apply(null, arguments);
+    };
+
+    req = (options.protocol === 'https:' ? https : http).request(options, function(res) {
+        response = res;
+        var data = [];
+        var datalen = 0;
+
+        res.on('data', function(chunk) {
+            data.push(chunk);
+            datalen += chunk.length;
+        });
+
+        res.on('end', function() {
+            return cleanupAndCallback(null, res, Buffer.concat(data, datalen));
+        });
+
+        res.on('error', function(err) {
+            return cleanupAndCallback(err);
+        });
+    });
+
+    req.on('error', function(err) {
+        return cleanupAndCallback(err);
+    });
+
+    if (payload) {
+        req.setHeader('Content-Type', 'application/x-www-form-urlencoded');
+        req.setHeader('Content-Length', typeof payload === 'string' ? Buffer.byteLength(payload) : payload.length);
+    }
+
+    for (var customHeaderName in params.customHeaders) {
+      req.setHeader(customHeaderName, params.customHeaders[customHeaderName]);
+    }
+
+    req.end(payload);
+}
+
+/**
+ * Encodes a buffer or a string into Base64url format
+ *
+ * @param {Buffer|String} data The data to convert
+ * @return {String} The encoded string
+ */
+function toBase64URL(data) {
+    if (typeof data === 'string') {
+        data = new Buffer(data);
+    }
+
+    return data.toString('base64')
+        .replace(/=+/g, '')     // remove '='s
+        .replace(/\+/g, '-')    // '+' → '-'
+        .replace(/\//g, '_');   // '/' → '_'
+}
+
+/**
+ * Header used for RS256 JSON Web Tokens, encoded as Base64URL.
+ */
+var JWT_RS256_HEADER = toBase64URL('{"alg":"RS256","typ":"JWT"}');
+
+/**
+ * Creates a JSON Web Token signed with RS256 (SHA256 + RSA)
+ * Only this specific operation is needed so it's implemented here
+ * instead of depending on jsonwebtoken.
+ *
+ * @param {Object} payload The payload to include in the generated token
+ * @param {String} privateKey Private key in PEM format for signing the token
+ * @return {String} The generated and signed token
+ */
+function jwtSignRS256(payload, privateKey) {
+    var signaturePayload = JWT_RS256_HEADER + '.' + toBase64URL(JSON.stringify(payload));
+
+    var rs256Signer = crypto.createSign('RSA-SHA256');
+    rs256Signer.update(signaturePayload);
+    var signature = toBase64URL(rs256Signer.sign(privateKey));
+
+    return signaturePayload + '.' + signature;
+}
+
+
+/***/ }),
+/* 119 */
+/***/ (function(module, exports) {
+
+module.exports = require("querystring");
 
 /***/ })
 /******/ ])));

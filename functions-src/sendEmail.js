@@ -15,7 +15,7 @@ exports.handler = (event, context, callback) => {
   const mailOptions = {
     from: `"${requestBody.name}" ${requestBody.email}`,
     to: 'soren@sorenbaird.com',
-    subject: `New ThriveLeadership.net Message from ${senderName}`,
+    subject: `New ThriveLeadership.net Message from ${requestBody.name}`,
     text: requestBody.message,
     html: `<p>${requestBody.message}</p>`
   }
