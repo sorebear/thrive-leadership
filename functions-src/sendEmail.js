@@ -30,8 +30,10 @@ exports.handler = (event, context, callback) => {
     to: 'soren@sorenbaird.com',
     subject: `New Thrive Leadership Registrant: ${body.firstName} ${body.lastName}`,
     text: `
-      First Name:${body.firstName}, Preferred Name: ${body.preferredName}, Last Name: ${body.lastName}, Phone: ${body.phone}, Email: ${body.email}, Address: ${body.addressStreet}, ${body.addressCity}, ${body.addressState}, ${body.addressZip}, Date Of Birth: ${body.birthDate}, The Person Who Told You About Thrive Leadership: ${body.referral}, 1. The first area of my leadership I'd like clarity in is: ${body.shortAnswer1}, 2. The second area of my leadership I'd like clarity in is: ${body.shortAnswer2}, 3. The third area of my leadership I'd like clarity in is: ${body.shortAnswer3}.`,
+    A new participant has registered for the Thrive Leadership Training. First Name:${body.firstName}, Preferred Name: ${body.preferredName}, Last Name: ${body.lastName}, Phone: ${body.phone}, Email: ${body.email}, Address: ${body.addressStreet}, ${body.addressCity}, ${body.addressState}, ${body.addressZip}, Date Of Birth: ${body.birthDate}, The Person Who Told You About Thrive Leadership: ${body.referral}, 1. The first area of my leadership I'd like clarity in is: ${body.shortAnswer1}, 2. The second area of my leadership I'd like clarity in is: ${body.shortAnswer2}, 3. The third area of my leadership I'd like clarity in is: ${body.shortAnswer3}.`,
     html: `
+      <p>A new participant has registered for the Thrive Leadership Training.</p>
+      <br>
       <p><strong>First Name:</strong> ${body.firstName}</p>
       <p><strong>Preferred Name:</strong> ${body.preferredName}</p>
       <p><strong>Last Name:</strong> ${body.lastName}</p>
@@ -39,10 +41,11 @@ exports.handler = (event, context, callback) => {
       <p><strong>Email:</strong> ${body.email}</p>
       <p><strong>Address:</strong> ${body.addressStreet}, ${body.addressCity}, ${body.addressState}, ${body.addressZip}</p>
       <p><strong>Date Of Birth:</strong> ${body.birthDate}</p>
+      <p><strong>Amount Paid</strong></p> ${body.paid}</p>
       <p><strong>The Person Who Told You About Thrive Leadership:</strong> ${body.referral}</p>
-      <p><strong>1. The first area of my leadership I'd like clarity in is:</strong> <br>${body.shortAnswer1}</p>
-      <p><strong>2. The second area of my leadership I'd like clarity in is:</strong> <br>${body.shortAnswer2}</p>
-      <p><strong>3. The third area of my leadership I'd like clarity in is:</strong> <br>${body.shortAnswer3}</p>`
+      <p><strong>1. The first area of my leadership I'd like clarity in is:</strong></p><p>${body.shortAnswer1}</p>
+      <p><strong>2. The second area of my leadership I'd like clarity in is:</strong></p><p>${body.shortAnswer2}</p>
+      <p><strong>3. The third area of my leadership I'd like clarity in is:</strong></p><p>${body.shortAnswer3}</p>`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {

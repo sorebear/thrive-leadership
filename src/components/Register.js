@@ -33,7 +33,7 @@ class Register extends React.Component {
   }
 
   emailNotificationOfNewRegistrant() {
-    const allInfo = { ...this.state.requiredInfo, ...this.state.optionalInfo, type: 'newRegistrant' };
+    const allInfo = { ...this.state.requiredInfo, ...this.state.optionalInfo, type: 'newRegistrant', paid: this.props.amount };
     axios.post(config.email.apiUrl, allInfo).then(res => {
       console.log('SUCCESS', res);
     }).catch(err => {
@@ -240,7 +240,7 @@ class Register extends React.Component {
         </div>
         <ul className="actions">
           <li>
-            { this.validateInput() ?  <CheckoutButton amount={100} callback={this.emailNotificationOfNewRegistrant} /> : <button>Please Fill Required Fields</button> }
+            { this.validateInput() ?  <CheckoutButton amount={this.props.amount} callback={this.emailNotificationOfNewRegistrant} /> : <button>Please Fill Required Fields</button> }
             {/* <CheckoutButton /> */}
           </li>
         </ul>
