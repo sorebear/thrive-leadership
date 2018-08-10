@@ -18,12 +18,11 @@ exports.handler = (event, context, callback) => {
     from: `caitbaird@gmail.com`,
     to: 'soren@sorenbaird.com',
     subject: `New ThriveLeadership.net Message from ${requestBody.name}`,
-    text: `MESSAGE SENDER NAME: ${requestBody.name}, MESSAGE SENDER EMAIL: ${requestBody.email}, MESSAGE: ${requestBody.message}`,
-    html: `<p>MESSAGE SENDER NAME: ${requestBody.name}</p>
+    text: `SENDER NAME: ${requestBody.name}, SENDER EMAIL: ${requestBody.email}, MESSAGE: ${requestBody.message}`,
+    html: `<p><strong>Sender Name:</strong> ${requestBody.name}</p>
+          <p><strong>Sender Email:</stron> ${requestBody.email}</p>
           <br>
-          <p>MESSAGE SENDER EMAIL: ${requestBody.email}</p>
-          <br>
-          <p>MESSAGE:</p>
+          <p><strong>Message:</strong></p>
           <p>${requestBody.message}</p>`
   };
 

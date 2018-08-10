@@ -52,33 +52,33 @@ class ContactForm extends React.Component {
   render() {
     return(
       <form method="post" onSubmit={this.handleSubmit} action={config.email.apiUrl}>
-      <div className="field half first">
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          name="name"
-          autoComplete="name"
-          id="name"
-          onChange={this.handleNameInput} value={this.state.name} />
-      </div>
-      <div className="field half">
-        <label htmlFor="email">Email</label>
-        <input
-          type="text"
-          name="email"
-          autoComplete="email"
-          id="email"
-          onChange={this.handleEmailInput}
-          value={this.state.email} />
-      </div>
-      <div className="field">
-        <label htmlFor="message">Message</label>
-        <textarea name="message" id="message" rows="4" onChange={this.handleMessageInput} value={this.state.message}></textarea>
-      </div>
-      <ul className="actions">
-        <li><input type="submit" value="Send Message" className="special" /></li>
-        <li><input type="reset" value="Reset" /></li>
-      </ul>
+        <div className="field half first">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            autoComplete="name"
+            id="name"
+            onChange={this.handleNameInput} value={this.state.name} />
+        </div>
+        <div className="field half">
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            name="email"
+            autoComplete="email"
+            id="email"
+            onChange={this.handleEmailInput}
+            value={this.state.email} />
+        </div>
+        <div className="field">
+          <label htmlFor="message">Message</label>
+          <textarea name="message" id="message" rows="4" onChange={this.handleMessageInput} value={this.state.message}></textarea>
+        </div>
+        <ul className="actions">
+          <li><input type="submit" value="Send Message" className="special" /></li>
+          <li><input type="reset" value="Reset" /></li>
+        </ul>
       </form>
     );
   }
