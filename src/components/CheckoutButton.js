@@ -38,7 +38,7 @@ class Register extends React.Component {
         token={this.onToken}
         amount={this.props.amount}
         currency={config.stripe.currency}
-        stripeKey={process.env.STRIPE_PUBLIC_KEY}
+        stripeKey={config.stripe.apiKey}
         allowRememberMe={false}
       />
     );
