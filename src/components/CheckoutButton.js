@@ -1,7 +1,6 @@
 import fetch from 'isomorphic-unfetch';
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
-import axios from 'axios';
 
 import config from '../client-config';
 
@@ -39,7 +38,7 @@ class Register extends React.Component {
         token={this.onToken}
         amount={this.props.amount}
         currency={config.stripe.currency}
-        stripeKey={config.stripe.apiKey}
+        stripeKey={process.env.STRIPE_PUBLIC_KEY}
         allowRememberMe={false}
       />
     );

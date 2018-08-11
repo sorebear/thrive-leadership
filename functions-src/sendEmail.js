@@ -17,7 +17,7 @@ exports.handler = (event, context, callback) => {
   const mailOptions = body.type === 'newMessage' ? 
   {
     from: `caitbaird@gmail.com`,
-    to: 'soren@sorenbaird.com',
+    to: process.env.SEND_TO_EMAIL,
     subject: `New Thrive Leadership Message from ${body.name}`,
     text: `SENDER NAME: ${body.name}, SENDER EMAIL: ${body.email}, MESSAGE: ${body.message}`,
     html: `<p><strong>Sender Name:</strong> ${body.name}</p>
@@ -27,7 +27,7 @@ exports.handler = (event, context, callback) => {
           <p>${body.message}</p>`
   } : {
     from: `caitbaird@gmail.com`,
-    to: 'soren@sorenbaird.com',
+    to: process.env.SEND_TO_EMAIL,
     subject: `New Thrive Leadership Registrant: ${body.firstName} ${body.lastName}`,
     text: `
     A new participant has registered for the Thrive Leadership Training. First Name:${body.firstName}, Preferred Name: ${body.preferredName}, Last Name: ${body.lastName}, Phone: ${body.phone}, Email: ${body.email}, Address: ${body.addressStreet}, ${body.addressCity}, ${body.addressState}, ${body.addressZip}, Date Of Birth: ${body.birthDate}, The Person Who Told You About Thrive Leadership: ${body.referral}, 1. The first area of my leadership I'd like clarity in is: ${body.shortAnswer1}, 2. The second area of my leadership I'd like clarity in is: ${body.shortAnswer2}, 3. The third area of my leadership I'd like clarity in is: ${body.shortAnswer3}.`,
