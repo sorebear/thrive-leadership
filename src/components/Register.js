@@ -47,6 +47,12 @@ class Register extends React.Component {
     });
   }
 
+  registrationError() {
+    this.setState({
+      registrationError: true
+    });
+  }
+
   handleRequiredInputUpdate(e) {
     const { requiredInfo } = this.state;
     requiredInfo[e.target.id] = e.target.value;
