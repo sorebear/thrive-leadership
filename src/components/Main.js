@@ -1,17 +1,11 @@
 import React from 'react'
-import Link from 'gatsby-link'
 
-import pic01 from '../images/pic01.jpg'
-import pic02 from '../images/pic02.jpg'
-import pic03 from '../images/pic03.jpg'
 import intro from '../images/intro.jpg';
 import about from '../images/about.jpg';
 import faq from '../images/faq.jpg';
 
 import ContactForm from './ContactForm';
 import Register from './Register';
-
-import config from '../client-config';
 
 class Main extends React.Component {
   constructor(props) {
@@ -32,7 +26,12 @@ class Main extends React.Component {
         <article id="register" className={`${this.props.article === 'register' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Register</h2>
           {/* <span className="image main"><img src={pic03} alt="" /></span> */}
-          <Register amount={this.amount} closeArticle={this.props.onCloseArticle} />
+          <Register
+            amount={this.amount}
+            closeArticle={this.props.onCloseArticle}
+            onNetworkRequestStart={this.props.onNetworkRequestStart}
+            onNetworkRequestEnd={this.props.onNetworkRequestEnd}
+          />
           {close}
         </article>
 
@@ -50,7 +49,9 @@ class Main extends React.Component {
           <h4>Who attends Thrive Leadership?</h4>
           <p>Leaders of all kinds! Business people, pastors, church members, seasoned leaders, brand new leaders, those in transition. Anyone who wants to experience transformation in their family, relationships, life and leadership!</p>
           <h4>What is the structure of the training?</h4>
-          <p>Thrive Leadership takes place over two consecutive days: Friday, October 13th and Saturday, October 14th from 9:00am to 6:30pm. There will be breaks every 2-3 hours. During the training, there will be dynamic lecture, experiential exercises, group discussions, interactive coaching, networking and study materials.</p>
+          <p>Thrive Leadership takes place over two consecutive days: Friday, October 13th and Saturday, October 14th from 9:00am to 6:00pm. There will be breaks every 2-3 hours. During the training, there will be dynamic lecture, experiential exercises, group discussions, interactive coaching, networking and study materials.</p>
+          <h4>Where is the training?</h4>
+          <p>Thrive Leadership will be held at 74235 Joe Davis Drive, 29 Palms, CA 92277.</p>
           <h4>What topics are covered?</h4>
           <ul>
             <li>Being a leader vs. Understanding leadership tactics and strategies</li>
@@ -65,7 +66,7 @@ class Main extends React.Component {
           </ul>
           <h4>What does Thrive Leadership cost?</h4>
           <ul>
-              <li>Super Early Bird (register by August 19th) - $75</li>
+              { this.amount <= 7500 ? <li>Super Early Bird (register by August 19th) - $75</li> : ''}
               <li>Early Bird (register by September 23rd) - $100</li>
               <li>General (register by October 11th) - $125</li>
           </ul>
@@ -99,10 +100,13 @@ class Main extends React.Component {
 
         <article id="contact" className={`${this.props.article === 'contact' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Contact</h2>
-          <ContactForm closeArticle={this.props.onCloseArticle} />
+          <ContactForm
+            closeArticle={this.props.onCloseArticle}
+            onNetworkRequestStart={this.props.onNetworkRequestStart}
+            onNetworkRequestEnd={this.props.onNetworkRequestEnd}
+          />
           {close}
         </article>
-
       </div>
     )
   }

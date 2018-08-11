@@ -6,6 +6,8 @@ import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
 
+import whiteSpinner from '../images/white-spinner.svg';
+
 class Template extends React.Component {
   constructor(props) {
     super(props)
@@ -14,10 +16,13 @@ class Template extends React.Component {
       timeout: false,
       articleTimeout: false,
       article: '',
-      loading: 'is-loading'
+      loading: 'is-loading',
+      processingRequest: false,
     }
     this.handleOpenArticle = this.handleOpenArticle.bind(this)
     this.handleCloseArticle = this.handleCloseArticle.bind(this)
+    this.onNetworkRequestStart = this.onNetworkRequestStart.bind(this);
+    this.onNetworkRequestEnd = this.onNetworkRequestEnd.bind(this);
   }
 
   componentDidMount () {
@@ -54,7 +59,6 @@ class Template extends React.Component {
   }
 
   handleCloseArticle() {
-
     this.setState({
       articleTimeout: !this.state.articleTimeout
     })
@@ -71,7 +75,29 @@ class Template extends React.Component {
         article: ''
       })
     }, 350)
+  }
 
+  onNetworkRequestStart() {
+    this.setState({
+      processingRequest: true
+    });
+  }
+
+  onNetworkRequestEnd() {
+    this.setState({
+      processingRequest: false
+    })
+  }
+
+  renderProcessingRequestScreen() {
+    return (
+      <div className="mask-overlay">
+        <div className="spinner-container">
+          <img src={whiteSpinner} className="spinner"/>
+          <h3>Please wait while we process your request...</h3>
+        </div>
+      </div>
+    )
   }
 
   render() {
@@ -93,8 +119,11 @@ class Template extends React.Component {
             articleTimeout={this.state.articleTimeout}
             article={this.state.article}
             onCloseArticle={this.handleCloseArticle}
+            onNetworkRequestStart={this.onNetworkRequestStart}
+            onNetworkRequestEnd={this.onNetworkRequestEnd}
           />
           <Footer timeout={this.state.timeout} />
+          { this.state.processingRequest ? this.renderProcessingRequestScreen() : <div />}
         </div>
       )
     } else {
