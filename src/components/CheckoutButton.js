@@ -13,7 +13,6 @@ class Register extends React.Component {
   }
 
   onToken(token) {
-    console.log('I am sending this token', token);
     fetch(config.stripe.apiUrl, {
       method: 'POST',
       body: JSON.stringify({
@@ -24,15 +23,11 @@ class Register extends React.Component {
         },
       }),
     }).then((res) => {
-      console.log(res);
-      const data = res.json();
-      console.log('onToken');
-      console.log(data);
-      
-      this.props.callback();
-
+      this.props.registrationSuccess();
+      console.log('Payment Successful', res);
     }).catch((err) => {
-      console.log('There was an error sending the info', err);
+      this.props.registrationError();
+      console.log('There was an error processing your payment', err);
     });
   }
 

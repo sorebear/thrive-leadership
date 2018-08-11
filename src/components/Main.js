@@ -19,7 +19,7 @@ class Main extends React.Component {
     this.today = new Date();
     this.superEarlyBirdCutoff = new Date(2018, 7, 20);
     this.earlyBirdCutoff = new Date(2018, 8, 24);
-    this.amount = this.today > this.earlyBirdCutoff ? 125000 : this.today > this.superEarlyBirdCutoff ? 10000 : 7500;
+    this.amount = this.today > this.earlyBirdCutoff ? 12500 : this.today > this.superEarlyBirdCutoff ? 10000 : 7500;
   }
 
   render() {

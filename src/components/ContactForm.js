@@ -29,8 +29,14 @@ class ContactForm extends React.Component {
       message
     }).then(res => {
       console.log('SUCCESS', res);
+      this.setState({
+        messageSent: true
+      })
     }).catch(err => {
       console.log('ERROR', err);
+      this.setState({
+        sendingError: true
+      })
     });
   }
 

@@ -32,9 +32,13 @@ class Register extends React.Component {
     this.handleRequiredInputUpdate = this.handleRequiredInputUpdate.bind(this);
     this.handleOptionalInputUpdate = this.handleOptionalInputUpdate.bind(this);
     this.emailNotificationOfNewRegistrant = this.emailNotificationOfNewRegistrant.bind(this);
+    this.registrationError = this.registrationError.bind(this);
   }
 
   emailNotificationOfNewRegistrant() {
+    this.setState({
+      registrationComplete: true
+    });
     const allInfo = { ...this.state.requiredInfo, ...this.state.optionalInfo, type: 'newRegistrant', paid: this.props.amount };
     axios.post(config.email.apiUrl, allInfo).then(res => {
       console.log('SUCCESS', res);
@@ -81,8 +85,7 @@ class Register extends React.Component {
       <div>
         <h3>Thank you! Your registration is complete.</h3>
         <br/>
-        <p>You will receive an email receipt within 24 hours.</p>
-        <p>If you have any questions or concerns, please send us a message</p>
+        <p>You will receive an email receipt within 24 hours. If you have any questions or concerns, please send us a message.</p>
         <ul className="actions">
           <li><input type="button" value="Close" onClick={this.props.closeArticle} /></li>
         </ul>
@@ -261,7 +264,11 @@ class Register extends React.Component {
         <ul className="actions">
           <li>
             { this.validateInput() ?  
-              <CheckoutButton amount={this.props.amount} callback={this.emailNotificationOfNewRegistrant} /> : 
+              <CheckoutButton
+                amount={this.props.amount}
+                registrationSuccess={this.emailNotificationOfNewRegistrant} 
+                registrationError={this.registrationError}
+              /> : 
               <button>Please Fill Required Fields</button> }
           </li>
         </ul>
