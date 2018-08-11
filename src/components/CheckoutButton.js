@@ -36,7 +36,8 @@ class Register extends React.Component {
       <StripeCheckout 
         name="Thrive Leadership"
         token={this.onToken}
-        amount={this.props.amount}
+        // amount={this.props.amount}
+        amount={100}
         currency={config.stripe.currency}
         stripeKey={config.stripe.apiKey}
         allowRememberMe={false}
