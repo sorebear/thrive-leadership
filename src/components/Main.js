@@ -4,8 +4,24 @@ import Link from 'gatsby-link'
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
+import intro from '../images/intro.jpg';
+import about from '../images/about.jpg';
+import faq from '../images/faq.jpg';
+
+import ContactForm from './ContactForm';
+import Register from './Register';
+
+import config from '../client-config';
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.today = new Date();
+    this.superEarlyBirdCutoff = new Date(2018, 7, 20);
+    this.earlyBirdCutoff = new Date(2018, 8, 24);
+    this.amount = this.today > this.earlyBirdCutoff ? 12500 : this.today > this.superEarlyBirdCutoff ? 10000 : 7500;
+  }
+
   render() {
 
     let close = <div className="close" onClick={() => {this.props.onCloseArticle()}}></div>
@@ -15,14 +31,14 @@ class Main extends React.Component {
 
         <article id="register" className={`${this.props.article === 'register' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Register</h2>
-          <span className="image main"><img src={pic03} alt="" /></span>
-          <h3>Coming Soon...</h3>
+          {/* <span className="image main"><img src={pic03} alt="" /></span> */}
+          <Register amount={this.amount} closeArticle={this.props.onCloseArticle} />
           {close}
         </article>
 
         <article id="intro" className={`${this.props.article === 'intro' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Intro</h2>
-          <span className="image main"><img src={pic01} alt="" /></span>
+          <span className="image main"><img src={intro} alt="" /></span>
           <p>Have you ever asked the question, “What does it mean to BE a leader?” Most of us learn a set of leadership tactics (do this, don’t do that) and are then confused when these tactics don’t universally work the way we want them to! In Thrive Leadership we ask the question, <strong>"Who are you <em>being</em> while you’re doing what you’re doing?”</strong> We look at the character of our leadership in addition to our competence.</p>
           <p>This training will help you uncover your assumptions, beliefs and patterns; and examine how they are working both for and against the vision you have for your leadership.  As your trainers, we are committed to rigorously supporting you and standing for new possibilities in your life.</p>
           {close}
@@ -30,9 +46,9 @@ class Main extends React.Component {
 
         <article id="faq" className={`${this.props.article === 'faq' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">FAQ's</h2>
-          <span className="image main"><img src={pic02} alt="" /></span>
+          <span className="image main"><img src={faq} alt="" /></span>
           <h4>Who attends Thrive Leadership?</h4>
-          <p>Leaders of all kinds! Business people, pastors, church members, seasoned leaders, brand new leaders, those in transition. Anyone who wants to experience transformation in their life and leadership!</p>
+          <p>Leaders of all kinds! Business people, pastors, church members, seasoned leaders, brand new leaders, those in transition. Anyone who wants to experience transformation in their family, relationships, life and leadership!</p>
           <h4>What is the structure of the training?</h4>
           <p>Thrive Leadership takes place over two consecutive days: Friday, October 13th and Saturday, October 14th from 9:00am to 6:30pm. There will be breaks every 2-3 hours. During the training, there will be dynamic lecture, experiential exercises, group discussions, interactive coaching, networking and study materials.</p>
           <h4>What topics are covered?</h4>
@@ -41,8 +57,10 @@ class Main extends React.Component {
             <li>Establishing vision</li>
             <li>Challenging personal and organizational complacency</li>
             <li>Discover assumptions and paradigms</li>
+            <li>Become aware of your belief systems</li>
             <li>Giving and receiving feedback</li>
             <li>Measuring your impact</li>
+            <li>Exploring possibilities</li>
             <li>Declaring commitments and a plan of action for your next steps toward the future you want</li>
           </ul>
           <h4>What does Thrive Leadership cost?</h4>
@@ -57,43 +75,31 @@ class Main extends React.Component {
 
         <article id="about" className={`${this.props.article === 'about' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">About</h2>
-          <span className="image main"><img src={pic03} alt="" /></span>
+          <span className="image main"><img src={about} alt="" /></span>
           <p>Thrive Leadership is comprised of 4 certified Transformational Trainers. They are:</p>
+          
           <h3>Caitlin Baird</h3>
-          <blockquote>“There’s some good in the world and it’s worth fighting for.”<br/>Sam, Lord of the Rings.</blockquote>
+          <blockquote>"There’s some good in the world and it’s worth fighting for."<br/>Sam, Lord of the Rings.</blockquote>
           <p>Caitlin is committed to pursuing goodness and hope in all circumstances. She is 35 and currently works for a mid-sized healthcare company in Irvine, CA. She is married to Soren and they have plans to expand their family with a puppy this fall.</p>
+          
           <h3>Daniel Bosch</h3>
+          <blockquote>"Dad, you've always been like a father to me."<br/>Trinity, Daniel’s teenage daughter.</blockquote>
+          <p>Daniel is passionate about sparking possibilities in people’s lives. He shares 4 amazing children (Jubilee, Season, Trinity, and Titus) with his wife of 23 years, Linda. Daniel is an 8-year Air Force veteran and currently owns and operates a small business in 29 Palms.</p>
+          
           <h3>Juan Garcia</h3>
+          <blockquote>"Don't discount our powers; We have made a pass at the infinite."<br/>Robert Frost</blockquote>
+          <p>Husband of 1 (Leslie - An Awesome Force of Love), Father of 2 (Zachariah and Joshua – Transformative Agents of Change), Passionately Barefoot (Plus - other Weirdo Tactics), and a Human committed to helping people see the spiritual reference point they/we all are for those around us</p>
+
           <h3>Rita Mills</h3>
+          <blockquote>"I'm not too concerned with what I am going to do. I am more interested in who I am becoming."<br/>Shane Claiborne</blockquote>
+          <p>Rita is committed to love, and to creating a peaceful space for exploration in life. She is 38, married to a steadfast and amazing man, Nour, and owns a business that works with children who have processing issues.</p>
+          
           {close}
         </article>
 
         <article id="contact" className={`${this.props.article === 'contact' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Contact</h2>
-          <form method="post" action="#">
-            <div className="field half first">
-              <label htmlFor="name">Name</label>
-              <input type="text" name="name" id="name" />
-            </div>
-            <div className="field half">
-              <label htmlFor="email">Email</label>
-              <input type="text" name="email" id="email" />
-            </div>
-            <div className="field">
-              <label htmlFor="message">Message</label>
-              <textarea name="message" id="message" rows="4"></textarea>
-            </div>
-            <ul className="actions">
-              <li><input type="submit" value="Send Message" className="special" /></li>
-              <li><input type="reset" value="Reset" /></li>
-            </ul>
-          </form>
-          <ul className="icons">
-            <li><a href="#" className="icon fa-twitter"><span className="label">Twitter</span></a></li>
-            <li><a href="#" className="icon fa-facebook"><span className="label">Facebook</span></a></li>
-            <li><a href="#" className="icon fa-instagram"><span className="label">Instagram</span></a></li>
-            <li><a href="#" className="icon fa-github"><span className="label">GitHub</span></a></li>
-          </ul>
+          <ContactForm closeArticle={this.props.onCloseArticle} />
           {close}
         </article>
 

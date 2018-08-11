@@ -54,6 +54,17 @@
 			border: solid _size(border-width) _palette(border);
 			border-radius: 100%;
 
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+
+			h2 {
+				margin: 0;
+				letter-spacing: 0;
+				font-size: 3rem;
+			}
+
 			.icon {
 				&:before {
 					font-size: 2rem;

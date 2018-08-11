@@ -6,6 +6,11 @@
 
 /* Icon */
 
+  @keyframes rotate {
+    0% { transform: translateX(-50%) rotate(0deg) }
+    100% { transform: translateX(-50%) rotate(360deg)}
+  }
+
 	.icon {
 		@include icon;
 		border-bottom: none;
@@ -14,4 +19,25 @@
 		> .label {
 			display: none;
 		}
-	}
+  }
+
+  .checkout-button-container,
+  .submit-button-container {
+    position: relative;
+
+    .spinner {
+      border-radius: 4px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 95%;
+      width: auto;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      animation: rotate 1.2s linear infinite;
+
+      &::before {
+        content: '';
+      }
+    }
+  }

@@ -4,19 +4,26 @@
   "version": "1.0.0",
   "author": "Hunter Chang",
   "dependencies": {
+    "axios": "^0.18.0",
     "gatsby": "^1.9.235",
-    "gatsby-link": "^1.6.39",
     "gatsby-image": "^1.0.42",
+    "gatsby-link": "^1.6.39",
     "gatsby-plugin-google-analytics": "^1.0.24",
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-sass": "^1.0.23",
     "gatsby-plugin-sharp": "^1.6.41",
+    "gatsby-plugin-stripe-checkout": "^1.0.5",
     "gatsby-remark-copy-linked-files": "^1.5.30",
     "gatsby-remark-images": "^1.5.56",
     "gatsby-source-filesystem": "^1.5.27",
     "gatsby-transformer-remark": "^1.7.37",
     "gatsby-transformer-sharp": "^1.6.22",
-    "lodash": "^4.17.4"
+    "isomorphic-unfetch": "^2.1.1",
+    "lodash": "^4.17.4",
+    "nodemailer": "^4.6.7",
+    "react-stripe-checkout": "^2.6.3",
+    "stripe": "^6.7.0",
+    "xoauth2": "^1.2.0"
   },
   "homepage": "https://github.com/ChangoMan/gatsby-starter-dimension",
   "keywords": [
@@ -29,12 +36,18 @@
     "url": "https://github.com/ChangoMan/gatsby-starter-dimension.git"
   },
   "scripts": {
+    "lambda": "netlify-lambda build functions-src",
+    "serve": "netlify-lambda serve functions-src",
     "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "develop": "gatsby develop",
+    "develop": "concurrently  \"gatsby develop\" \"netlify-lambda serve functions-src\"",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.1",
+    "netlify-lambda": "^0.4.0"
   }
 }

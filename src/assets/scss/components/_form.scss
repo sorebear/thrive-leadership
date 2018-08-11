@@ -11,7 +11,8 @@
 
 		margin: 0 0 (_size(element-margin) * 1.25) 0;
 
-		.field {
+    .field,
+    .info-card {
 			margin: 0 0 ($gutter * 1) 0;
 
 			&.half {
@@ -30,7 +31,8 @@
 		}
 
 		@include breakpoint(small) {
-			.field {
+      .field,
+      .info-card {
 				margin: 0 0 ($gutter * 0.75) 0;
 
 				&.half {
@@ -48,7 +50,8 @@
 		}
 
 		@include breakpoint(xsmall) {
-			.field {
+      .field,
+      .info-card {
 				&.half {
 					width: 100%;
 					float: none;

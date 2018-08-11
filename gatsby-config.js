@@ -34,6 +34,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-stripe-checkout`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
