@@ -12,7 +12,6 @@ class ContactForm extends React.Component {
       message: '',
       messageSent: false,
       sendingError: false,
-      pleaseWaitSpinner: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -109,7 +108,6 @@ class ContactForm extends React.Component {
         </div>
         <ul className="actions submit-button-container" style={{ display: 'inline-block' }}>
           <li><input type="submit" value="Send Message" className="special" /></li>
-          { this.state.pleaseWaitSpinner ? <img className="spinner" src={spinner}/> : <div /> }
         </ul>
       </form>
     );

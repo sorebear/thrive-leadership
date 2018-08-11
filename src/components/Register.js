@@ -26,7 +26,6 @@ class Register extends React.Component {
         referral: '',
         birthDate: '',
       },
-      pleaseWaitSpinner: false,
       registrationComplete: false,
       registrationError: false
     }
@@ -35,13 +34,11 @@ class Register extends React.Component {
     this.handleOptionalInputUpdate = this.handleOptionalInputUpdate.bind(this);
     this.emailNotificationOfNewRegistrant = this.emailNotificationOfNewRegistrant.bind(this);
     this.registrationError = this.registrationError.bind(this);
-    this.requestStart = this.requestStart.bind(this);
   }
 
   emailNotificationOfNewRegistrant() {
     this.setState({
       registrationComplete: true,
-      pleaseWaitSpinner: false
     });
     const allInfo = { ...this.state.requiredInfo, ...this.state.optionalInfo, type: 'newRegistrant', paid: this.props.amount };
     axios.post(config.email.apiUrl, allInfo).then(res => {
@@ -54,12 +51,6 @@ class Register extends React.Component {
   registrationError() {
     this.setState({
       registrationError: true
-    });
-  }
-
-  requestStart() {
-    this.setState({
-      pleaseWaitSpinner: true
     });
   }
 
@@ -129,7 +120,7 @@ class Register extends React.Component {
             <h3>Price</h3>
           </div>
           <div>
-            <p className="mb-0">Super Early Bird (register by August 19th) - $75</p>
+            { this.props.amount <= 7500 ? <p className="mb-0">Super Early Bird (register by August 19th) - $75</p> : ''}
             <p className="mb-0">Early Bird (register by September 23rd) - $100</p>
             <p>General (register by October 11th) - $125</p>
           </div>
@@ -304,6 +295,9 @@ class Register extends React.Component {
               value={this.state.requiredInfo.shortAnswer3}>
             </textarea>
           </div>
+          <div className="field">
+            <label>Total: ${this.props.amount / 100}.00</label>
+          </div>
           <ul className="actions">
             <li>
               { this.validateInput() ?
@@ -315,7 +309,6 @@ class Register extends React.Component {
                     onNetworkRequestStart={this.props.onNetworkRequestStart}
                     onNetworkRequestEnd={this.props.onNetworkRequestEnd}
                   />
-                  { this.state.pleaseWaitSpinner ? <img className="spinner" src={spinner}/> : <div /> }
                 </div> :
                 <button>Please Fill Required Fields</button> }
             </li>
