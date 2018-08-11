@@ -7,8 +7,8 @@
 /* Icon */
 
   @keyframes rotate {
-    0% { transform: translateX(-50%) rotate(0deg) }
-    100% { transform: translateX(-50%) rotate(360deg)}
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(360deg)}
   }
 
 	.icon {
@@ -19,6 +19,38 @@
 		> .label {
 			display: none;
 		}
+  }
+
+  .mask-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .spinner-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+
+      img {
+        width: 6rem;
+        height: 6rem;
+        animation: rotate 1.2s linear infinite;
+      }
+
+      h2, h3, h4, h5, h6, p {
+        &:last-child {
+          margin-top: 2rem;
+        }
+      }
+    }
   }
 
   .checkout-button-container,

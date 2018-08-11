@@ -23,9 +23,7 @@ class ContactForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({
-      pleaseWaitSpinner: true
-    });
+    this.props.onNetworkRequestStart();
     const { name, email, message } = this.state;
     axios.post(config.email.apiUrl, {
       type: 'newMessage',
@@ -34,12 +32,13 @@ class ContactForm extends React.Component {
       message
     }).then(res => {
       console.log('SUCCESS', res);
+      this.props.onNetworkRequestEnd();
       this.setState({
-        messageSent: true,
-        pleaseWaitSpinner: false
-      })
+        messageSent: true
+      });
     }).catch(err => {
       console.log('ERROR', err);
+      this.props.onNetworkRequestEnd();
       this.setState({
         sendingError: true
       })

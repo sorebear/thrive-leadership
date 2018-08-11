@@ -312,7 +312,8 @@ class Register extends React.Component {
                     amount={this.props.amount}
                     registrationSuccess={this.emailNotificationOfNewRegistrant} 
                     registrationError={this.registrationError}
-                    requestStart={this.requestStart}
+                    onNetworkRequestStart={this.props.onNetworkRequestStart}
+                    onNetworkRequestEnd={this.props.onNetworkRequestEnd}
                   />
                   { this.state.pleaseWaitSpinner ? <img className="spinner" src={spinner}/> : <div /> }
                 </div> :
