@@ -1,0 +1,43 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "graphql": false,
+    "process": false,
+    "__dirname": false
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "no-unused-vars": 1,
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "no-console": 0,
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
+  }
+}

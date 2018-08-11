@@ -1,17 +1,11 @@
 import React from 'react'
-import Link from 'gatsby-link'
 
-import pic01 from '../images/pic01.jpg'
-import pic02 from '../images/pic02.jpg'
-import pic03 from '../images/pic03.jpg'
 import intro from '../images/intro.jpg';
 import about from '../images/about.jpg';
 import faq from '../images/faq.jpg';
 
 import ContactForm from './ContactForm';
 import Register from './Register';
-
-import config from '../client-config';
 
 class Main extends React.Component {
   constructor(props) {
