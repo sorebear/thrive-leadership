@@ -32,7 +32,7 @@ class Main extends React.Component {
         <article id="register" className={`${this.props.article === 'register' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Register</h2>
           {/* <span className="image main"><img src={pic03} alt="" /></span> */}
-          <Register amount={this.amount} />
+          <Register amount={this.amount} closeArticle={this.props.onCloseArticle} />
           {close}
         </article>
 
@@ -94,7 +94,7 @@ class Main extends React.Component {
 
         <article id="contact" className={`${this.props.article === 'contact' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Contact</h2>
-          <ContactForm />
+          <ContactForm closeArticle={this.props.onCloseArticle} />
           {close}
         </article>
 

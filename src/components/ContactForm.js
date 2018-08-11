@@ -9,6 +9,8 @@ class ContactForm extends React.Component {
       name: '',
       email: '',
       message: '',
+      messageSent: false,
+      sendingError: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -51,7 +53,24 @@ class ContactForm extends React.Component {
   }
 
   render() {
-    return(
+    return this.state.sendingError ? (
+      <div>
+        <h3>We're sorry, there was an error sending your message.</h3>
+        <p>Please try again later.</p>
+        <ul className="actions">
+          <li><input type="button" value="Close" onClick={this.props.closeArticle} /></li>
+        </ul>
+      </div>
+    ) : this.state.messageSent ? (
+      <div>
+        <h3>Thank you! Your message has been sent.</h3>
+        <br/>
+        <p>You will receive a reply within the next 24 hours.</p>
+        <ul className="actions">
+          <li><input type="button" value="Close" onClick={this.props.closeArticle} /></li>
+        </ul>
+    </div>
+    ) : (
       <form method="post" onSubmit={this.handleSubmit} action={config.email.apiUrl}>
         <div className="field half first">
           <label htmlFor="name">Name</label>

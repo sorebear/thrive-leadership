@@ -24,7 +24,9 @@ class Register extends React.Component {
         preferredName: '',
         referral: '',
         birthDate: '',
-      }
+      },
+      registrationComplete: false,
+      registrationError: false
     }
 
     this.handleRequiredInputUpdate = this.handleRequiredInputUpdate.bind(this);
@@ -67,7 +69,25 @@ class Register extends React.Component {
   }
 
   render() {
-    return (
+    return this.state.registrationError ? (
+      <div>
+        <h3>We're sorry, there was an error with your registration.</h3>
+        <p>Please send us a message so we can resolve the issue.</p>
+        <ul className="actions">
+          <li><input type="button" value="Close" onClick={this.props.closeArticle} /></li>
+        </ul>
+      </div>
+    ) : this.state.registrationComplete ? (
+      <div>
+        <h3>Thank you! Your registration is complete.</h3>
+        <br/>
+        <p>You will receive an email receipt within 24 hours.</p>
+        <p>If you have any questions or concerns, please send us a message</p>
+        <ul className="actions">
+          <li><input type="button" value="Close" onClick={this.props.closeArticle} /></li>
+        </ul>
+      </div>
+    ) : (
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="field half first">
           <label htmlFor="firstName">First Name*</label>
@@ -240,8 +260,9 @@ class Register extends React.Component {
         </div>
         <ul className="actions">
           <li>
-            { this.validateInput() ?  <CheckoutButton amount={this.props.amount} callback={this.emailNotificationOfNewRegistrant} /> : <button>Please Fill Required Fields</button> }
-            {/* <CheckoutButton /> */}
+            { this.validateInput() ?  
+              <CheckoutButton amount={this.props.amount} callback={this.emailNotificationOfNewRegistrant} /> : 
+              <button>Please Fill Required Fields</button> }
           </li>
         </ul>
       </form>
