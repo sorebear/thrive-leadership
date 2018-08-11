@@ -1,6 +1,7 @@
 import React from 'react';
 import config from '../client-config';
 import axios from 'axios';
+import spinner from '../images/spinner.svg';
 
 class ContactForm extends React.Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class ContactForm extends React.Component {
       email: '',
       message: '',
       messageSent: false,
-      sendingError: false
+      sendingError: false,
+      pleaseWaitSpinner: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,6 +23,9 @@ class ContactForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({
+      pleaseWaitSpinner: true
+    });
     const { name, email, message } = this.state;
     axios.post(config.email.apiUrl, {
       type: 'newMessage',
@@ -30,7 +35,8 @@ class ContactForm extends React.Component {
     }).then(res => {
       console.log('SUCCESS', res);
       this.setState({
-        messageSent: true
+        messageSent: true,
+        pleaseWaitSpinner: false
       })
     }).catch(err => {
       console.log('ERROR', err);
@@ -102,9 +108,9 @@ class ContactForm extends React.Component {
           <label htmlFor="message">Message</label>
           <textarea name="message" id="message" rows="4" onChange={this.handleMessageInput} value={this.state.message}></textarea>
         </div>
-        <ul className="actions">
+        <ul className="actions submit-button-container" style={{ display: 'inline-block' }}>
           <li><input type="submit" value="Send Message" className="special" /></li>
-          <li><input type="reset" value="Reset" /></li>
+          { this.state.pleaseWaitSpinner ? <img className="spinner" src={spinner}/> : <div /> }
         </ul>
       </form>
     );

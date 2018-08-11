@@ -77,18 +77,23 @@ class Main extends React.Component {
           <h2 className="major">About</h2>
           <span className="image main"><img src={about} alt="" /></span>
           <p>Thrive Leadership is comprised of 4 certified Transformational Trainers. They are:</p>
+          
           <h3>Caitlin Baird</h3>
           <blockquote>"There’s some good in the world and it’s worth fighting for."<br/>Sam, Lord of the Rings.</blockquote>
           <p>Caitlin is committed to pursuing goodness and hope in all circumstances. She is 35 and currently works for a mid-sized healthcare company in Irvine, CA. She is married to Soren and they have plans to expand their family with a puppy this fall.</p>
+          
           <h3>Daniel Bosch</h3>
           <blockquote>"Dad, you've always been like a father to me."<br/>Trinity, Daniel’s teenage daughter.</blockquote>
           <p>Daniel is passionate about sparking possibilities in people’s lives. He shares 4 amazing children (Jubilee, Season, Trinity, and Titus) with his wife of 23 years, Linda. Daniel is an 8-year Air Force veteran and currently owns and operates a small business in 29 Palms.</p>
-          <h3>Rita Mills</h3>
-          <blockquote>"I'm not too concerned with what I am going to do. I am more interested in who I am becoming."<br/>Shane Claiborne</blockquote>
-          <p>Rita is committed to love, and to creating a peaceful space for exploration in life. She is 38, married to a steadfast and amazing man, Nour, and owns a business that works with children who have processing issues.</p>
+          
           <h3>Juan Garcia</h3>
           <blockquote>"Don't discount our powers; We have made a pass at the infinite."<br/>Robert Frost</blockquote>
           <p>Husband of 1 (Leslie - An Awesome Force of Love), Father of 2 (Zachariah and Joshua – Transformative Agents of Change), Passionately Barefoot (Plus - other Weirdo Tactics), and a Human committed to helping people see the spiritual reference point they/we all are for those around us</p>
+
+          <h3>Rita Mills</h3>
+          <blockquote>"I'm not too concerned with what I am going to do. I am more interested in who I am becoming."<br/>Shane Claiborne</blockquote>
+          <p>Rita is committed to love, and to creating a peaceful space for exploration in life. She is 38, married to a steadfast and amazing man, Nour, and owns a business that works with children who have processing issues.</p>
+          
           {close}
         </article>
 
