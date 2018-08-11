@@ -1,6 +1,6 @@
 const config = {
   stripe: {
-    apiKey: 'pk_live_inLaxt98ldJemderUnCMOlDT',
+    apiKey: 'pk_test_kze3wkMOtLWSPfXfT7UxVWJR',
     apiUrl: '../.netlify/functions/createCharge',
     currency: 'USD',
   },
