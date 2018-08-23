@@ -17,13 +17,16 @@ class Main extends React.Component {
   }
 
   render() {
-
     let close = <div className="close" onClick={() => {this.props.onCloseArticle();}}></div>;
-
+    const { article, articleTimeout } = this.props;
     return (
       <div id="main" style={this.props.timeout ? {display: 'flex'} : {display: 'none'}}>
 
-        <article id="register" className={`${this.props.article === 'register' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
+        <article
+          id="register"
+          className={`${article === 'register' ? 'active' : ''} ${articleTimeout ? 'timeout' : ''}`}
+          style={{display:'none'}}
+        >
           <h2 className="major">Register</h2>
           {/* <span className="image main"><img src={pic03} alt="" /></span> */}
           <Register
@@ -35,7 +38,11 @@ class Main extends React.Component {
           {close}
         </article>
 
-        <article id="intro" className={`${this.props.article === 'intro' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
+        <article
+          id="intro"
+          className={`${article === 'intro' ? 'active' : ''} ${articleTimeout ? 'timeout' : ''}`}
+          style={{display:'none'}}
+        >
           <h2 className="major">Intro</h2>
           <span className="image main"><img src={intro} alt="" /></span>
           <p>Have you ever asked the question, “What does it mean to BE a leader?” Most of us learn a set of leadership tactics (do this, don’t do that) and are then confused when these tactics don’t universally work the way we want them to! In Thrive Leadership we ask the question, <strong>"Who are you <em>being</em> while you’re doing what you’re doing?”</strong> We look at the character of our leadership in addition to our competence.</p>
@@ -43,7 +50,11 @@ class Main extends React.Component {
           {close}
         </article>
 
-        <article id="faq" className={`${this.props.article === 'faq' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
+        <article 
+          id="faq"
+          className={`${article === 'faq' ? 'active' : ''} ${articleTimeout ? 'timeout' : ''}`}
+          style={{display:'none'}}
+        >
           <h2 className="major">FAQ's</h2>
           <span className="image main"><img src={faq} alt="" /></span>
           <h4>Who attends Thrive Leadership?</h4>
@@ -66,7 +77,7 @@ class Main extends React.Component {
           </ul>
           <h4>What does Thrive Leadership cost?</h4>
           <ul>
-            { this.amount <= 7500 ? <li>Super Early Bird (register by August 19th) - $75</li> : ''}
+            { this.amount <= 7500 ? <li>Super Early Bird (register by August 26th) - $75</li> : ''}
             <li>Early Bird (register by September 23rd) - $100</li>
             <li>General (register by October 11th) - $125</li>
           </ul>
@@ -74,7 +85,11 @@ class Main extends React.Component {
           {close}
         </article>
 
-        <article id="about" className={`${this.props.article === 'about' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
+        <article
+          id="about"
+          className={`${article === 'about' ? 'active' : ''} ${articleTimeout ? 'timeout' : ''}`}
+          style={{display:'none'}}
+        >
           <h2 className="major">About</h2>
           <span className="image main"><img src={about} alt="" /></span>
           <p>Thrive Leadership is comprised of 4 certified Transformational Trainers. They are:</p>
@@ -98,7 +113,11 @@ class Main extends React.Component {
           {close}
         </article>
 
-        <article id="contact" className={`${this.props.article === 'contact' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
+        <article
+          id="contact"
+          className={`${article === 'contact' ? 'active' : ''} ${articleTimeout ? 'timeout' : ''}`}
+          style={{display:'none'}}
+        >
           <h2 className="major">Contact</h2>
           <ContactForm
             closeArticle={this.props.onCloseArticle}
