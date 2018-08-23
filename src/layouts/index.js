@@ -1,16 +1,16 @@
-import React from 'react'
-import '../assets/scss/main.scss'
-import Helmet from 'react-helmet'
+import React from 'react';
+import '../assets/scss/main.scss';
+import Helmet from 'react-helmet';
 
-import Header from '../components/Header'
-import Main from '../components/Main'
-import Footer from '../components/Footer'
+import Header from '../components/Header';
+import Main from '../components/Main';
+import Footer from '../components/Footer';
 
 import whiteSpinner from '../images/white-spinner.svg';
 
 class Template extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isArticleVisible: false,
       timeout: false,
@@ -18,22 +18,22 @@ class Template extends React.Component {
       article: '',
       loading: 'is-loading',
       processingRequest: false,
-    }
-    this.handleOpenArticle = this.handleOpenArticle.bind(this)
-    this.handleCloseArticle = this.handleCloseArticle.bind(this)
+    };
+    this.handleOpenArticle = this.handleOpenArticle.bind(this);
+    this.handleCloseArticle = this.handleCloseArticle.bind(this);
     this.onNetworkRequestStart = this.onNetworkRequestStart.bind(this);
     this.onNetworkRequestEnd = this.onNetworkRequestEnd.bind(this);
   }
 
   componentDidMount () {
     this.timeoutId = setTimeout(() => {
-        this.setState({loading: ''});
+      this.setState({loading: ''});
     }, 100);
   }
 
   componentWillUnmount () {
     if (this.timeoutId) {
-        clearTimeout(this.timeoutId);
+      clearTimeout(this.timeoutId);
     }
   }
 
@@ -42,39 +42,39 @@ class Template extends React.Component {
     this.setState({
       isArticleVisible: !this.state.isArticleVisible,
       article
-    })
+    });
 
     setTimeout(() => {
       this.setState({
         timeout: !this.state.timeout
-      })
-    }, 325)
+      });
+    }, 325);
 
     setTimeout(() => {
       this.setState({
         articleTimeout: !this.state.articleTimeout
-      })
-    }, 350)
+      });
+    }, 350);
 
   }
 
   handleCloseArticle() {
     this.setState({
       articleTimeout: !this.state.articleTimeout
-    })
+    });
 
     setTimeout(() => {
       this.setState({
         timeout: !this.state.timeout
-      })
-    }, 325)
+      });
+    }, 325);
 
     setTimeout(() => {
       this.setState({
         isArticleVisible: !this.state.isArticleVisible,
         article: ''
-      })
-    }, 350)
+      });
+    }, 350);
   }
 
   onNetworkRequestStart() {
@@ -86,7 +86,7 @@ class Template extends React.Component {
   onNetworkRequestEnd() {
     this.setState({
       processingRequest: false
-    })
+    });
   }
 
   renderProcessingRequestScreen() {
@@ -97,16 +97,15 @@ class Template extends React.Component {
           <h3>Please wait while we process your request...</h3>
         </div>
       </div>
-    )
+    );
   }
 
   render() {
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const siteDescription = this.props.data.site.siteMetadata.description
-    const { location, children } = this.props
+    const siteTitle = this.props.data.site.siteMetadata.title;
+    const siteDescription = this.props.data.site.siteMetadata.description;
+    const { location, children } = this.props;
 
-    let rootPath = `/`
-
+    let rootPath = '/';
     let content;
 
     if (location.pathname === rootPath) {
@@ -125,7 +124,7 @@ class Template extends React.Component {
           <Footer timeout={this.state.timeout} />
           { this.state.processingRequest ? this.renderProcessingRequestScreen() : <div />}
         </div>
-      )
+      );
     } else {
       content = (
         <div id="wrapper" className="page">
@@ -135,25 +134,25 @@ class Template extends React.Component {
             {children()}
           </div>
         </div>
-      )
+      );
     }
 
     return (
       <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
         <Helmet>
-            <title>{siteTitle}</title>
-            <meta name="description" content={siteDescription} />
+          <title>{siteTitle}</title>
+          <meta name="description" content={siteDescription} />
         </Helmet>
 
         {content}
 
         <div id="bg"></div>
       </div>
-    )
+    );
   }
 }
 
-export default Template
+export default Template;
 
 export const pageQuery = graphql`
   query PageQuery {
@@ -164,4 +163,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

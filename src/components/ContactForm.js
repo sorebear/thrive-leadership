@@ -12,7 +12,7 @@ class ContactForm extends React.Component {
       message: '',
       messageSent: false,
       sendingError: false,
-    }
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNameInput = this.handleNameInput.bind(this);
@@ -40,7 +40,7 @@ class ContactForm extends React.Component {
       this.props.onNetworkRequestEnd();
       this.setState({
         sendingError: true
-      })
+      });
     });
   }
 
@@ -79,7 +79,7 @@ class ContactForm extends React.Component {
         <ul className="actions">
           <li><input type="button" value="Close" onClick={this.props.closeArticle} /></li>
         </ul>
-    </div>
+      </div>
     ) : (
       <form method="post" onSubmit={this.handleSubmit} action={config.email.apiUrl}>
         <div className="field half first">
