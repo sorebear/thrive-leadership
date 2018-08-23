@@ -119,7 +119,7 @@ class Register extends React.Component {
             <h3>Price</h3>
           </div>
           <div>
-            { this.props.amount <= 7500 ? <p className="mb-0">Super Early Bird (register by August 19th) - $75</p> : ''}
+            { this.props.amount <= 7500 ? <p className="mb-0">Super Early Bird (register by August 26th) - $75</p> : ''}
             <p className="mb-0">Early Bird (register by September 23rd) - $100</p>
             <p>General (register by October 11th) - $125</p>
           </div>
