@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import intro from '../images/intro.jpg';
 import about from '../images/about.jpg';
@@ -11,14 +11,14 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.today = new Date();
-    this.superEarlyBirdCutoff = new Date(2018, 7, 20);
+    this.superEarlyBirdCutoff = new Date(2018, 7, 27);
     this.earlyBirdCutoff = new Date(2018, 8, 24);
     this.amount = this.today > this.earlyBirdCutoff ? 12500 : this.today > this.superEarlyBirdCutoff ? 10000 : 7500;
   }
 
   render() {
 
-    let close = <div className="close" onClick={() => {this.props.onCloseArticle()}}></div>
+    let close = <div className="close" onClick={() => {this.props.onCloseArticle();}}></div>;
 
     return (
       <div id="main" style={this.props.timeout ? {display: 'flex'} : {display: 'none'}}>
@@ -66,9 +66,9 @@ class Main extends React.Component {
           </ul>
           <h4>What does Thrive Leadership cost?</h4>
           <ul>
-              { this.amount <= 7500 ? <li>Super Early Bird (register by August 19th) - $75</li> : ''}
-              <li>Early Bird (register by September 23rd) - $100</li>
-              <li>General (register by October 11th) - $125</li>
+            { this.amount <= 7500 ? <li>Super Early Bird (register by August 19th) - $75</li> : ''}
+            <li>Early Bird (register by September 23rd) - $100</li>
+            <li>General (register by October 11th) - $125</li>
           </ul>
           <p>NOTE: Registration closes Thursday, October 11th at 5:00 pm</p>
           {close}
@@ -108,7 +108,7 @@ class Main extends React.Component {
           {close}
         </article>
       </div>
-    )
+    );
   }
 }
 
@@ -118,6 +118,6 @@ Main.propTypes = {
   articleTimeout: React.PropTypes.bool,
   onCloseArticle: React.PropTypes.func,
   timeout: React.PropTypes.bool
-}
+};
 
-export default Main
+export default Main;
