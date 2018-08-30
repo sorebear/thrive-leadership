@@ -62,7 +62,7 @@ class Main extends React.Component {
           <h4>What is the structure of the training?</h4>
           <p>Thrive Leadership takes place over two consecutive days: Saturday, October 13th and Sunday, October 14th from 9:00am to 6:00pm. There will be breaks every 2-3 hours. During the training, there will be dynamic lecture, experiential exercises, group discussions, interactive coaching, networking and study materials.</p>
           <h4>Where is the training?</h4>
-          <p>Thrive Leadership will be held at 5882 Luckie Ave, Twentynine Palms, CA 92277.</p>
+          <p>Thrive Leadership will be held at 5882 Luckie Ave, 29 Palms, CA 92277.</p>
           <h4>What topics are covered?</h4>
           <ul>
             <li>Being a leader vs. Understanding leadership tactics and strategies</li>
