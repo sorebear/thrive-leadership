@@ -104,7 +104,7 @@ class Register extends React.Component {
           </div>
           <div>
             <p className="mb-0">5882 Luckie Ave</p>
-            <p>Twentynine Palms, CA 92277</p>
+            <p>29 Palms, CA 92277</p>
           </div>
 
           <div>
