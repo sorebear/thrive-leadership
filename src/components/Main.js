@@ -101,10 +101,6 @@ class Main extends React.Component {
           <h3>Daniel Bosch</h3>
           <blockquote>"Dad, you've always been like a father to me."<br/>Trinity, Daniel’s teenage daughter.</blockquote>
           <p>Daniel is passionate about sparking possibilities in people’s lives. He shares 4 amazing children (Jubilee, Season, Trinity, and Titus) with his wife of 23 years, Linda. Daniel is an 8-year Air Force veteran and currently owns and operates a small business in 29 Palms.</p>
-          
-          <h3>Juan Garcia</h3>
-          <blockquote>"Don't discount our powers; We have made a pass at the infinite."<br/>Robert Frost</blockquote>
-          <p>Husband of 1 (Leslie - An Awesome Force of Love), Father of 2 (Zachariah and Joshua – Transformative Agents of Change), Passionately Barefoot (Plus - other Weirdo Tactics), and a Human committed to helping people see the spiritual reference point they/we all are for those around us</p>
 
           <h3>Rita Mills</h3>
           <blockquote>"I'm not too concerned with what I am going to do. I am more interested in who I am becoming."<br/>Shane Claiborne</blockquote>
