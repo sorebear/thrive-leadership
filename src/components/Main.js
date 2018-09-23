@@ -92,7 +92,7 @@ class Main extends React.Component {
         >
           <h2 className="major">About</h2>
           <span className="image main"><img src={about} alt="" /></span>
-          <p>Thrive Leadership is comprised of 4 certified Transformational Trainers. They are:</p>
+          <p>Thrive Leadership is comprised of 3 certified Transformational Trainers. They are:</p>
           
           <h3>Caitlin Baird</h3>
           <blockquote>"There’s some good in the world and it’s worth fighting for."<br/>Sam, Lord of the Rings.</blockquote>
