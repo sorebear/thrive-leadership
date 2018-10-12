@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckoutButton from './CheckoutButton';
+// import CheckoutButton from './CheckoutButton';
 import axios from 'axios';
 import config from '../client-config';
 
@@ -119,9 +119,10 @@ class Register extends React.Component {
             <h3>Price</h3>
           </div>
           <div>
-            { this.props.amount <= 7500 ? <p className="mb-0">Super Early Bird (register by August 26th) - $75</p> : ''}
+            {/* { this.props.amount <= 7500 ? <p className="mb-0">Super Early Bird (register by August 26th) - $75</p> : ''}
             <p className="mb-0">Early Bird (register by September 23rd) - $100</p>
-            <p>General (register by October 11th) - $125</p>
+            <p>General (register by October 11th) - $125</p> */}
+            <p>Sorry, registration is closed.</p>
           </div>
         </div>
         <form onSubmit={(e) => e.preventDefault()}>
@@ -294,12 +295,9 @@ class Register extends React.Component {
               value={this.state.requiredInfo.shortAnswer3}>
             </textarea>
           </div>
-          <div className="field">
-            <label>Total: ${this.props.amount / 100}.00</label>
-          </div>
           <ul className="actions">
             <li>
-              { this.validateInput() ?
+              {/* { this.validateInput() ?
                 <div className="checkout-button-container">
                   <CheckoutButton
                     amount={this.props.amount}
@@ -309,7 +307,8 @@ class Register extends React.Component {
                     onNetworkRequestEnd={this.props.onNetworkRequestEnd}
                   />
                 </div> :
-                <button>Please Fill Required Fields</button> }
+                <button>Please Fill Required Fields</button> } */}
+              <button disabled>Registration is Closed</button>
             </li>
           </ul>
         </form>
